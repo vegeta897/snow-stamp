@@ -31,8 +31,10 @@ class App extends PureComponent {
                             <Statistic inverted size="large">
                                 <Statistic.Value>{new Date(this.state.time).toLocaleString()}</Statistic.Value>
                                 <Statistic.Label>{(new Date()).toString().split('(')[1].slice(0, -1)}</Statistic.Label>
+                                <Statistic.Value>{new Date(this.state.time).getTime()/1000|0}</Statistic.Value>
+                                <Statistic.Label>UNIX</Statistic.Label>
                             </Statistic>
-                        </Segment> : <div className="timestamp" style={{ height: '144px' }}></div>}
+                        </Segment> : <div className="timestamp" style={{ height: '251px' }}></div>}
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

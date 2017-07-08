@@ -21,8 +21,12 @@
 }
 
 .App .timestamp .label {
-    margin-top: 0.9rem!important;
+    margin-top: 0.6rem!important;
     font-size: 2em;
+}
+
+.App .timestamp .label:nth-child(2) {
+    margin-bottom: 1.0rem!important;
 }
 
 #github-link {
