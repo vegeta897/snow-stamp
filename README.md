@@ -8,4 +8,4 @@ http://pixelatomy.com/snow-stamp/
 
 ---
 
-Made with create-react-app
+*Made with create-react-app*

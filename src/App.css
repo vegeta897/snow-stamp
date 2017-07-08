@@ -24,3 +24,11 @@
     margin-top: 0.9rem!important;
     font-size: 2em;
 }
+
+#github-link {
+    font-size: 1.8em;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.3em;
+}
