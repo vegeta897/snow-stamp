@@ -1,9 +1,13 @@
-#root, .App {
+#root, .App, .App > .container {
     height: 100%;
 }
 
 .App h1 {
     margin-bottom: 3.5rem!important;
+}
+
+.App h1 .sub.header {
+    font-size: 0.8em!important;
 }
 
 .ui.input.gargantuan {
@@ -27,6 +31,11 @@
 
 .App .timestamp .label:nth-child(2) {
     margin-bottom: 1.0rem!important;
+}
+
+#help-link {
+    cursor: pointer;
+    font-size: 0.7em;
 }
 
 #github-link {
