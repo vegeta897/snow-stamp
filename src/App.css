@@ -1,0 +1,26 @@
+#root, .App {
+    height: 100%;
+}
+
+.App h1 {
+    margin-bottom: 3.5rem!important;
+}
+
+.ui.input.gargantuan {
+    font-size: 2.5em;
+}
+
+.ui.input.gargantuan button {
+    font-size: 0.8em;
+}
+
+.App .timestamp {
+    margin-top: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.App .timestamp .label {
+    margin-top: 0.9rem!important;
+    font-size: 2em;
+}
