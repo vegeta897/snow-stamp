@@ -33,7 +33,7 @@ class App extends PureComponent {
                             {this.state.time ? <Segment padded compact inverted className="timestamp">
                                 <Statistic inverted size="large">
                                     <Statistic.Value>{new Date(this.state.time).toLocaleString()}</Statistic.Value>
-                                    <Statistic.Label>{(new Date()).toString().split('(')[1].slice(0, -1)}</Statistic.Label>
+                                    <Statistic.Label>{((new Date()).toString().split('(')[1] || "").slice(0, -1)}</Statistic.Label>
                                     <Statistic.Value>{new Date(this.state.time).getTime()/1000|0}</Statistic.Value>
                                     <Statistic.Label>UNIX</Statistic.Label>
                                 </Statistic>
