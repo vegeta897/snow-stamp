@@ -24,13 +24,13 @@
     margin-right: auto;
 }
 
-.App .timestamp .label {
+.App .timestamp .statistic .label {
     margin-top: 0.6rem!important;
     font-size: 2em;
 }
 
-.App .timestamp .label:nth-child(2) {
-    margin-bottom: 1.0rem!important;
+.ui.divider {
+    margin: 0.1rem 0;
 }
 
 #help-link {

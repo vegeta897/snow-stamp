@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import { Header, Icon, Container, Segment, Grid, Input, Statistic, Modal } from 'semantic-ui-react';
+import { Header, Icon, Container, Segment, Grid, Input, Statistic, Modal, Divider } from 'semantic-ui-react';
 import './App.css';
 
 class App extends PureComponent {
@@ -31,17 +31,27 @@ class App extends PureComponent {
                                        icon="snowflake outline" iconPosition='left' className="gargantuan" />
                             </Container>
                             {this.state.time ? <Segment padded compact inverted className="timestamp">
-                                <Statistic inverted size="large">
-                                    <Statistic.Value>{new Date(this.state.time).toLocaleString()}</Statistic.Value>
-                                    <Statistic.Label>{((new Date()).toString().split('(')[1] || "").slice(0, -1)}</Statistic.Label>
-                                    <Statistic.Value>{new Date(this.state.time).getTime()/1000|0}</Statistic.Value>
-                                    <Statistic.Label>UNIX</Statistic.Label>
-                                </Statistic>
-                            </Segment> : <div className="timestamp" style={{ height: '251px' }}></div>}
+                                <Segment inverted>
+                                    <Statistic inverted size="large" color="teal">
+                                        <Statistic.Value>{new Date(this.state.time).toLocaleString()}</Statistic.Value>
+                                        <Statistic.Label>{((new Date()).toString().split('(')[1] || "").slice(0, -1)}</Statistic.Label>
+                                    </Statistic>
+                                    <Divider />
+                                    <Statistic inverted size="small">
+                                        <Statistic.Value>{this.state.time/1000|0}</Statistic.Value>
+                                        <Statistic.Label>UNIX</Statistic.Label>
+                                    </Statistic>
+                                    <Divider />
+                                    <Statistic inverted size="small">
+                                        <Statistic.Value>{new Date(this.state.time).toISOString()}</Statistic.Value>
+                                        <Statistic.Label>ISO 8601</Statistic.Label>
+                                    </Statistic>
+                                </Segment>
+                            </Segment> : <div className="timestamp" style={{ height: '372px' }}></div>}
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-                <Modal size="small" dimmer="blurring" open={this.state.helpOpen} 
+                <Modal size="small" dimmer="blurring" open={this.state.helpOpen}
                        closeOnDimmerClick closeOnEscape onClose={this.hideHelp} closeIcon="close">
                     <Modal.Content>
                         <p>A Snowflake is essentially a unique ID for a resource (message, user, channel, etc) which contains a timestamp.</p>
