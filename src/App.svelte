@@ -68,7 +68,7 @@
 
 	h1 {
 		font-family: 'PT Sans', sans-serif;
-		color: #0086ad;
+		color: #008dad;
 		font-size: 2em;
 	}
 

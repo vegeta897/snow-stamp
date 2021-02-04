@@ -13,27 +13,16 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Lato, 'PT Sans', sans-serif;
 }
 
-a {
-	color: #0086ad;
-	text-decoration: none;
-}
-
 a:hover {
 	text-decoration: underline;
 }
 
-a:visited {
-	color: #006c8b;
-}
-
 ::selection {
-	color: #eee;
-	background: #01a9d7; /* WebKit/Blink Browsers */
+	background: #69eaff; /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-	color: #eee;
-	background: #01a9d7; /* WebKit/Blink Browsers */
+	background: #69eaff; /* WebKit/Blink Browsers */
 }
 
 label {
@@ -59,7 +48,7 @@ input::placeholder {
 }
 
 input:focus {
-	outline: 2px solid #006684;
+	outline: 2px solid #007584;
 }
 
 input:disabled {

@@ -22,8 +22,10 @@
 	}
 
 	summary {
+		color: #666;
 		font-size: 1.1em;
 		cursor: pointer;
+		font-weight: bold;
 	}
 
 	summary:focus {
