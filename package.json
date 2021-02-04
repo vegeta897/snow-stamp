@@ -1,19 +1,10 @@
 {
   "name": "snow-stamp",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "react-scripts": "1.1.5",
-    "semantic-ui-css": "2.2.10",
-    "semantic-ui-react": "0.71.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   },
   "homepage": "."
 }
