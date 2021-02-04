@@ -2,6 +2,7 @@
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
+	import Github from './Github.svelte'
 
 	let snowflake = '',
 		timestamp,
@@ -51,6 +52,7 @@
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
+	<Github />
 </main>
 
 <style>
