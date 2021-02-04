@@ -1,6 +1,7 @@
 <script>
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
+	import Output from './Output.svelte'
 
 	let snowflake = '',
 		timestamp,
@@ -20,6 +21,11 @@
 		if (!Number.isInteger(+snowflake)) {
 			error =
 				"That doesn't look like a snowflake. Snowflakes contain only numbers."
+			return
+		}
+		if (snowflake < 4194304) {
+			error =
+				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
 			return
 		}
 		timestamp = new Date(snowflake / 4194304 + 1420070400000)
@@ -47,29 +53,9 @@
 			placeholder="e.g. 86913608335773696"
 		/>
 	</div>
-	{#if timestamp}
-		<section class="info">
-			<!-- Locale timestamp -->
-			<p>
-				<time datetime={timestamp.toISOString()} use:selectTextOnFocus
-					>{timestamp.toLocaleString()}</time
-				>
-			</p>
-			<p class="label">
-				{(new Date().toString().split('(')[1] || '').slice(0, -1)}
-			</p>
-			<hr />
-			<!-- Unix timestamp -->
-			<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
-			<p class="label">UNIX</p>
-			<hr />
-			<!-- ISO 8601 -->
-			<p><samp id="unix">{timestamp.toISOString()}</samp></p>
-			<p class="label">ISO 8601</p>
-		</section>
-	{/if}
+	<Output {timestamp} />
 	{#if error}
-		<p>{error}</p>
+		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
 </main>
 
@@ -116,51 +102,9 @@
 		padding-left: 0.5em;
 	}
 
-	section.info {
-		color: #eee;
-		font-size: 1.5em;
-		background: rgba(0, 0, 0, 0.87);
-		display: table;
-		margin: 0 auto;
-		padding: 0.5em 1.6em;
-	}
-
-	section.info p {
-		margin: 0;
-	}
-
-	section.info time {
-		font-size: 2.3em;
-		color: #69eaff;
-		line-height: 1;
-	}
-
-	section.info samp {
-		font-size: 1.8em;
-		line-height: 1;
-	}
-
-	section.info hr {
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	section.info .label {
-		text-transform: uppercase;
-		opacity: 0.85;
-	}
-
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
-		}
-	}
-
-	@media (max-width: 880px) {
-		section.info {
-			max-width: 500px;
-		}
-		section.info samp#unix {
-			font-size: 1em;
 		}
 	}
 
@@ -171,22 +115,6 @@
 
 		.input-icon {
 			font-size: 1.3em;
-		}
-
-		section.info {
-			font-size: 1em;
-			padding: 1em;
-		}
-
-		section.info time {
-			font-size: 2em;
-		}
-
-		section.info samp {
-			font-size: 2.4em;
-		}
-
-		section.info .label {
 		}
 	}
 </style>
