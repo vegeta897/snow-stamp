@@ -8,4 +8,4 @@ So I made one.
 
 ---
 
-*Made with create-react-app*
+*Made with svelte*
