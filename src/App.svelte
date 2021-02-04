@@ -7,12 +7,6 @@
 		timestamp,
 		error
 
-	// Reset the snowflake input
-	const reset = () => {
-		snowflake = ''
-		update()
-	}
-
 	// Refresh the output
 	const update = () => {
 		timestamp = null
