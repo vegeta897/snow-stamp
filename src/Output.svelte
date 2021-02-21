@@ -2,27 +2,23 @@
 	export let timestamp
 </script>
 
-{#if timestamp}
-	<section>
-		<!-- Locale timestamp -->
-		<p>
-			<time datetime={timestamp.toISOString()}
-				>{timestamp.toLocaleString()}</time
-			>
-		</p>
-		<p class="label">
-			{(new Date().toString().split('(')[1] || '').slice(0, -1)}
-		</p>
-		<hr />
-		<!-- Unix timestamp -->
-		<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
-		<p class="label">UNIX</p>
-		<hr />
-		<!-- ISO 8601 -->
-		<p><samp id="iso">{timestamp.toISOString()}</samp></p>
-		<p class="label">ISO 8601</p>
-	</section>
-{/if}
+<section>
+	<!-- Locale timestamp -->
+	<p>
+		<time datetime={timestamp.toISOString()}>{timestamp.toLocaleString()}</time>
+	</p>
+	<p class="label">
+		{(new Date().toString().split('(')[1] || '').slice(0, -1)}
+	</p>
+	<hr />
+	<!-- Unix timestamp -->
+	<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
+	<p class="label">UNIX</p>
+	<hr />
+	<!-- ISO 8601 -->
+	<p><samp id="iso">{timestamp.toISOString()}</samp></p>
+	<p class="label">ISO 8601</p>
+</section>
 
 <style>
 	section {
