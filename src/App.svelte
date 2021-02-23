@@ -6,9 +6,6 @@
 	import Credits from './Credits.svelte'
 	import Github from './Github.svelte'
 
-	console.log(location.search)
-	console.log(qs.parse(location.search))
-
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
 		error
