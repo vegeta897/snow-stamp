@@ -1,5 +1,7 @@
 <div class="credits">
-	Questions or comments? Add me on Discord: <code>vegeta897#7777</code>
+	Questions or comments? Add me on Discord: <code>vegeta897#7777</code><br />
+	If you want to support my projects,
+	<a href="https://paypal.me/spikowski" target="_blank">send me a tip!</a> ❤
 </div>
 
 <style>
