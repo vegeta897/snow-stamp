@@ -29,7 +29,11 @@
 			return
 		}
 		timestamp = new Date(snowflake / 4194304 + 1420070400000)
-		window.history.replaceState(null, null, qs.stringify({ s: snowflake }))
+		window.history.replaceState(
+			null,
+			null,
+			'?' + qs.stringify({ s: snowflake })
+		)
 	}
 	update()
 </script>
