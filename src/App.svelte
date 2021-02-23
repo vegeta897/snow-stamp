@@ -1,11 +1,15 @@
 <script>
+	import qs from 'query-string'
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
 	import Credits from './Credits.svelte'
 	import Github from './Github.svelte'
 
-	let snowflake = '',
+	console.log(location.search)
+	console.log(qs.parse(location.search))
+
+	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
 		error
 
@@ -25,6 +29,7 @@
 			return
 		}
 		timestamp = new Date(snowflake / 4194304 + 1420070400000)
+		window.history.replaceState(null, null, qs.stringify({ s: snowflake }))
 	}
 	update()
 </script>
