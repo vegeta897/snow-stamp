@@ -19,7 +19,7 @@
 	url.subscribe(() => (copyText = '📋 Copy'))
 </script>
 
-<div>
+<fieldset>
 	<input
 		type="text"
 		id="share-url"
@@ -28,21 +28,27 @@
 		use:blurOnEscape
 		bind:value={$url}
 	/><button on:click={copy}>{copyText}</button>
-</div>
+</fieldset>
 
 <style>
-	div {
-		font-size: 1.1em;
-		margin: 1em auto 0;
-		padding: 0.3em 0;
-		display: table;
-	}
 	input {
-		font-size: 0.9em;
 		width: 340px;
 	}
+
+	fieldset {
+		border: none;
+		margin: 2em auto;
+		padding: 0;
+	}
+
+	input,
 	button {
-		margin: 0 0 0 0.5em;
+		padding: 0.4em;
+		margin: 0 0.2em;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		line-height: 1.2em;
 	}
 
 	@media (max-width: 639px) {
