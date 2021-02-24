@@ -58,11 +58,11 @@
 	{#if timestamp}
 		<Output {timestamp} />
 		<Share />
-		<Credits />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
+	<Credits />
 </main>
 
 <style>
