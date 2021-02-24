@@ -3,6 +3,7 @@
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
+	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import Github from './Github.svelte'
 
@@ -10,8 +11,10 @@
 		timestamp,
 		error
 
+	$: update(snowflake)
+
 	// Refresh the output
-	const update = () => {
+	function update() {
 		timestamp = null
 		error = null
 		if (!snowflake.trim()) return
@@ -32,7 +35,6 @@
 			'?' + qs.stringify({ s: snowflake })
 		)
 	}
-	update()
 </script>
 
 <main>
@@ -49,7 +51,6 @@
 		<input
 			type="text"
 			bind:value={snowflake}
-			on:input={update}
 			use:selectTextOnFocus
 			use:blurOnEscape
 			placeholder="e.g. 86913608335773696"
