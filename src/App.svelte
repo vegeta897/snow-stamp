@@ -1,16 +1,20 @@
 <script>
+	import qs from 'querystringify'
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
+	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import Github from './Github.svelte'
 
-	let snowflake = '',
+	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
 		error
 
+	$: update(snowflake)
+
 	// Refresh the output
-	const update = () => {
+	function update() {
 		timestamp = null
 		error = null
 		if (!snowflake.trim()) return
@@ -25,8 +29,9 @@
 			return
 		}
 		timestamp = new Date(snowflake / 4194304 + 1420070400000)
+		window.history.replaceState(null, null, qs.stringify({ s: snowflake }, '?'))
+		url.set(window.location.href)
 	}
-	update()
 </script>
 
 <main>
@@ -43,7 +48,6 @@
 		<input
 			type="text"
 			bind:value={snowflake}
-			on:input={update}
 			use:selectTextOnFocus
 			use:blurOnEscape
 			placeholder="e.g. 86913608335773696"
@@ -52,6 +56,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
+		<Share />
 		<Credits />
 	{/if}
 	{#if error}
