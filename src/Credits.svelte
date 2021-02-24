@@ -42,7 +42,8 @@
 	}
 
 	.credits code {
-		font-size: 1.2em;
+		font-family: 'Fira Code', monospace;
+		font-size: 0.9em;
 		padding: 0.2em 0.3em;
 		background: #f4f4f4;
 	}
