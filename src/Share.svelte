@@ -51,7 +51,7 @@
 		line-height: 1.2em;
 	}
 
-	@media (max-width: 639px) {
+	@media (max-width: 749px) {
 		input {
 			width: 180px;
 		}

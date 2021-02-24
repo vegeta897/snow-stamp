@@ -4,81 +4,73 @@
 
 <section>
 	<!-- Locale timestamp -->
-	<p>
-		<time datetime={timestamp.toISOString()}>{timestamp.toLocaleString()}</time>
-	</p>
 	<p class="label">
 		{(new Date().toString().split('(')[1] || '').slice(0, -1)}
 	</p>
+	<p>
+		<time datetime={timestamp.toISOString()}>{timestamp.toLocaleString()}</time>
+	</p>
 	<hr />
 	<!-- Unix timestamp -->
-	<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
 	<p class="label">UNIX</p>
+	<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
 	<hr />
 	<!-- ISO 8601 -->
-	<p><samp id="iso">{timestamp.toISOString()}</samp></p>
 	<p class="label">ISO 8601</p>
+	<p><samp id="iso">{timestamp.toISOString()}</samp></p>
 </section>
 
 <style>
 	section {
+		text-align: left;
 		color: #eee;
 		font-size: 1.8em;
-		background: rgba(0, 0, 0, 0.87);
-		display: table;
-		margin: 0 auto;
-		padding: 0.5em 1.6em;
+		background: rgba(0, 0, 0, 0.75);
+		padding: 1em 1.6em;
 	}
 
 	section p {
-		margin: 0;
+		margin: 0.2em 0;
+	}
+
+	section .label {
+		font-size: 0.9em;
+		opacity: 0.85;
 	}
 
 	section time {
-		font-size: 2.3em;
+		font-size: 1.8em;
 		color: #69eaff;
 		line-height: 1;
 	}
 
 	section samp {
-		font-size: 2.2em;
+		font-family: 'Fira Code', monospace;
+		font-size: 1.45em;
 		line-height: 1;
 	}
 
 	section hr {
 		border: 1px solid rgba(255, 255, 255, 0.2);
+		margin: 1em 0;
 	}
 
-	section .label {
-		text-transform: uppercase;
-		opacity: 0.85;
-	}
-
-	@media (max-width: 880px) {
-		section {
-			max-width: 500px;
-		}
-		section samp#iso {
-			font-size: 1.2em;
-		}
-	}
-
-	@media (max-width: 639px) {
+	@media (max-width: 749px) {
 		section {
 			font-size: 1.4em;
 			padding: 1em;
 		}
 
 		section time {
-			font-size: 2em;
+			font-size: 1.18em;
 		}
 
 		section samp {
-			font-size: 2.2em;
+			font-size: 1em;
 		}
 
 		section samp#iso {
-			font-size: 1em;
+			font-size: 0.85em;
 		}
 
 		section .label {

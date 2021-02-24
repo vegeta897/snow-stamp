@@ -5,7 +5,6 @@
 	import Output from './Output.svelte'
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
-	import Github from './Github.svelte'
 
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
@@ -43,7 +42,9 @@
 		Paste in a Discord snowflake to get the timestamp
 	</p>
 	<Help />
-	<div style="position: relative; display: inline-flex; margin-bottom: 2em;">
+	<div
+		style="position: relative; display: inline-flex; margin-bottom: 2em; width: 100%;"
+	>
 		<div class="input-icon">❄</div>
 		<input
 			type="text"
@@ -57,12 +58,11 @@
 	{#if timestamp}
 		<Output {timestamp} />
 		<Share />
-		<Credits />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
-	<Github />
+	<Credits />
 </main>
 
 <style>
@@ -79,7 +79,6 @@
 	}
 
 	h1 {
-		font-family: 'PT Sans', sans-serif;
 		color: #008dad;
 		font-size: 2em;
 	}
@@ -90,8 +89,7 @@
 
 	input {
 		font-size: 2.5em;
-		width: 14.5em;
-		/*padding-left: 1.5em;*/
+		width: 100%;
 		margin: 0;
 		padding: 0.5em 0.5em 0.5em 2em;
 	}
@@ -108,13 +106,13 @@
 		padding-left: 0.5em;
 	}
 
-	@media (min-width: 640px) {
+	@media (min-width: 750px) {
 		main {
-			max-width: none;
+			max-width: 700px;
 		}
 	}
 
-	@media (max-width: 639px) {
+	@media (max-width: 749px) {
 		input {
 			font-size: 1.3em;
 		}
