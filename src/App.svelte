@@ -5,7 +5,6 @@
 	import Output from './Output.svelte'
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
-	import Github from './Github.svelte'
 
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
@@ -64,7 +63,6 @@
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
-	<Github />
 </main>
 
 <style>
