@@ -1,5 +1,5 @@
 <script>
-	import qs from 'query-string'
+	import qs from 'querystringify'
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
