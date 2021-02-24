@@ -6,12 +6,12 @@
 <div class="credits">
 	<p>
 		<a class="github" href="https://github.com/vegeta897/snow-stamp"
-			>GitHub <img
+			><img
 				height="24px"
 				src={github}
 				alt="GitHub"
-				style="position: relative; margin-left: 2px; top: 5px; margin-top: -5px;"
-			/></a
+				style="position: relative; margin-right: 2px; top: 5px; margin-top: -5px;"
+			/> GitHub</a
 		>
 	</p>
 	<p>
@@ -28,7 +28,7 @@
 	<p>
 		<span>If you want to support my projects,</span>
 		<span
-			><a href="https://paypal.me/spikowski" target="_blank">send me a tip!</a> ❤</span
+			><a href="https://paypal.me/spikowski" target="_blank">send me a tip!</a> 💙</span
 		>
 	</p>
 </div>
