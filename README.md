@@ -19,7 +19,7 @@ Pull requests and issues are welcome!
 
 ## Deploy
 
-`npm run build && npm run start`
+`npm run build && npm start`
 
 ---
 
