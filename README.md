@@ -17,10 +17,9 @@ Pull requests and issues are welcome!
 
 `npm install && npm run dev`
 
-## Build
+## Deploy
 
-1. `npm run build`
-2. Upload from `/public`
+`npm run build && npm run start`
 
 ---
 
