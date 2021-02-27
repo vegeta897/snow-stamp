@@ -11,7 +11,7 @@
 				src={github}
 				alt="GitHub"
 				style="position: relative; margin-right: 2px; top: 5px; margin-top: -5px;"
-			/> GitHub</a
+			/><span style="text-decoration: none">&nbsp;</span>GitHub</a
 		>
 	</p>
 	<p>
@@ -28,7 +28,9 @@
 	<p>
 		<span>If you want to support my projects,</span>
 		<span
-			><a href="https://paypal.me/spikowski" target="_blank">send me a tip!</a> 💙</span
+			><a href="https://paypal.me/spikowski" target="_blank"
+				>send me a tip!<span style="text-decoration: none">&nbsp;💙</span></a
+			></span
 		>
 	</p>
 </div>
