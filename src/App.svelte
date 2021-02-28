@@ -68,8 +68,8 @@
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 320px;
+		padding: 1em 0;
+		max-width: 348px;
 		margin: 0 auto;
 	}
 

@@ -53,7 +53,7 @@
 
 	@media (max-width: 749px) {
 		input {
-			width: 180px;
+			width: 190px;
 		}
 	}
 </style>

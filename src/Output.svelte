@@ -26,7 +26,8 @@
 		color: #eee;
 		font-size: 1.8em;
 		background: rgba(0, 0, 0, 0.75);
-		padding: 1em 1.6em;
+		padding: 1em 1.5em;
+		white-space: nowrap;
 	}
 
 	section p {
@@ -70,10 +71,7 @@
 		}
 
 		section samp#iso {
-			font-size: 0.85em;
-		}
-
-		section .label {
+			font-size: 0.9em;
 		}
 	}
 </style>
