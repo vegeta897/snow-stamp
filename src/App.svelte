@@ -6,6 +6,8 @@
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 
+	const EPOCH = +process.env.SNOWFLAKE_EPOCH || 1420070400000
+
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
 		error
@@ -27,7 +29,7 @@
 				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
 			return
 		}
-		timestamp = new Date(snowflake / 4194304 + 1420070400000)
+		timestamp = new Date(snowflake / 4194304 + EPOCH)
 		window.history.replaceState(null, null, qs.stringify({ s: snowflake }, '?'))
 		url.set(window.location.href)
 	}
