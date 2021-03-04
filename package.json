@@ -27,5 +27,6 @@
 		"start": "sirv public --host",
 		"format": "prettier --write ."
 	},
-	"homepage": "."
+	"homepage": "https://github.com/vegeta897/snow-stamp#readme",
+	"issues": "https://github.com/vegeta897/snow-stamp/issues"
 }
