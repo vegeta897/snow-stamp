@@ -8,6 +8,7 @@
 		You can copy the snowflake from a message, user, channel, etc by right
 		clicking on them in Discord.
 	</p>
+	<p>This will let you check the age of a Discord account or server.</p>
 	<p>
 		You must have Developer Mode enabled, which is found in <strong
 			>User Settings</strong
