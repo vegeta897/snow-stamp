@@ -13,7 +13,7 @@
 		You must have Developer Mode enabled, which is found in <strong
 			>User Settings</strong
 		>
-		> <strong>Appearance</strong>
+		> <strong>Advanced</strong>
 	</p>
 </details>
 
