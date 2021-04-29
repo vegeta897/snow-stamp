@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: rollup
+    versions:
+    - 2.41.2
+    - 2.42.2
+    - 2.43.1
+    - 2.44.0
+    - 2.45.1
