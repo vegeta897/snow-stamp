@@ -28,8 +28,8 @@
 	<p>
 		<span>If you want to support my projects,</span>
 		<span
-			><a href="https://paypal.me/spikowski" target="_blank"
-				>send me a tip!<span style="text-decoration: none">&nbsp;💙</span></a
+			><a href="https://www.buymeacoffee.com/vegeta897" target="_blank"
+				>buy me a coffee!<span style="text-decoration: none">&nbsp;💙</span></a
 			></span
 		>
 	</p>
