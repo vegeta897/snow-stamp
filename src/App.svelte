@@ -31,7 +31,14 @@
 				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
 			return
 		}
-		timestamp = new Date(snowflake / 4194304 + EPOCH)
+		const _timestamp = new Date(snowflake / 4194304 + EPOCH)
+		if (isNaN(_timestamp.getTime())) {
+			error =
+				"That doesn't look like a snowflake. Snowflakes have fewer digits."
+			return
+		}
+		timestamp = _timestamp
+		console.log(timestamp)
 		window.history.replaceState(null, null, qs.stringify({ s: snowflake }, '?'))
 		url.set(window.location.href)
 	}
