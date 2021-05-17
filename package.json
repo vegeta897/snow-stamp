@@ -9,7 +9,7 @@
 		"@rollup/plugin-replace": "^2.4.2",
 		"dotenv": "^8.2.0",
 		"prettier": "^2.3.0",
-		"prettier-plugin-svelte": "^2.1.6",
+		"prettier-plugin-svelte": "^2.3.0",
 		"rollup": "^2.48.0",
 		"rollup-plugin-css-only": "^3.1.0",
 		"rollup-plugin-livereload": "^2.0.0",
