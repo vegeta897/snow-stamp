@@ -4,7 +4,7 @@ I couldn't find a page anywhere that let you paste in a Discord snowflake to get
 
 So I made one.
 
-❄️ https://pixelatomy.com/snow-stamp/
+🔗 https://y.at/❄️⚙️⏰👏
 
 ## Contribute
 
