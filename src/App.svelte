@@ -5,7 +5,7 @@
 	import Output from './Output.svelte'
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
-	import { convertSnowflakeToDate } from './convert'
+	import { validateSnowflake } from './convert'
 
 	const EPOCH = isNaN(parseInt(process.env.SNOWFLAKE_EPOCH))
 		? 1420070400000
@@ -22,26 +22,17 @@
 		timestamp = null
 		error = null
 		if (!snowflake.trim()) return
-		if (!Number.isInteger(+snowflake)) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes contain only numbers."
-			return
+		try {
+			timestamp = validateSnowflake(snowflake, +process.env.SNOWFLAKE_EPOCH)
+			window.history.replaceState(
+				null,
+				null,
+				qs.stringify({ s: snowflake }, '?')
+			)
+			url.set(window.location.href)
+		} catch (e) {
+			error = e
 		}
-		if (snowflake < 4194304) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
-			return
-		}
-		const _timestamp = convertSnowflakeToDate(snowflake, EPOCH)
-		if (isNaN(_timestamp.getTime())) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes have fewer digits."
-			return
-		}
-		timestamp = _timestamp
-		console.log(timestamp)
-		window.history.replaceState(null, null, qs.stringify({ s: snowflake }, '?'))
-		url.set(window.location.href)
 	}
 </script>
 
