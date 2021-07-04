@@ -46,6 +46,7 @@ export default {
 	plugins: [
 		replace({
 			process: JSON.stringify({ env: { ...config().parsed } }),
+			preventAssignment: true,
 		}),
 		svelte({
 			compilerOptions: {
