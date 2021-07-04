@@ -6,6 +6,8 @@ So I made one.
 
 🔗 https://y.at/❄️⚙️⏰👏
 
+👩‍💻 If you're a developer looking for the conversion code, check out [convert.js](src/convert.js)
+
 ## Contribute
 
 Pull requests and issues are welcome!
