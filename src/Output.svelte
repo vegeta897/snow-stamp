@@ -5,7 +5,7 @@
 <section>
 	<!-- Locale timestamp -->
 	<p class="label">
-		{(new Date().toString().split('(')[1] || '').slice(0, -1)}
+		{(timestamp.toString().split('(')[1] || '').slice(0, -1)}
 	</p>
 	<p>
 		<time datetime={timestamp.toISOString()}>{timestamp.toLocaleString()}</time>
