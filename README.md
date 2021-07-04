@@ -21,11 +21,21 @@ Pull requests and issues are welcome!
 
 ### Epoch
 
-You can use a custom epoch instead of [Discord's](https://discord.com/developers/docs/reference#snowflakes) by setting environment variable `SNOWFLAKE_EPOCH` to the desired number. You can create a `.env` file in root to set this variable.
+You can use a custom epoch instead of [Discord's](https://discord.com/developers/docs/reference#snowflakes) by setting environment variable `SNOWFLAKE_EPOCH` to the desired integer. You can create a `.env` file in root to set this variable.
 
 ## Deploy
 
-`npm run build && npm start`
+You can deploy a static site or run the included server. The benefit of using the server is that links containing snowflakes will show the timestamp in embeds when posted on services like Discord.
+
+For either deployment, you must first build:
+
+`npm run build`
+
+To deploy a static site, copy or host the contents of `/public`
+
+Otherwise, start the server:
+
+`npm start`
 
 ---
 
