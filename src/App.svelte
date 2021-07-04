@@ -5,6 +5,7 @@
 	import Output from './Output.svelte'
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
+	import { convertSnowflakeToDate } from "./convert";
 
 	const EPOCH = isNaN(parseInt(process.env.SNOWFLAKE_EPOCH))
 		? 1420070400000
@@ -31,7 +32,7 @@
 				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
 			return
 		}
-		const _timestamp = new Date(snowflake / 4194304 + EPOCH)
+		const _timestamp = convertSnowflakeToDate(snowflake, EPOCH)
 		if (isNaN(_timestamp.getTime())) {
 			error =
 				"That doesn't look like a snowflake. Snowflakes have fewer digits."
