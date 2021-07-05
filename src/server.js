@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 import nodeHTMLParser from 'node-html-parser'
 import express from 'express'
 import { config } from 'dotenv'
+import { decodeURLFormattedTimestamp } from './format.js'
 
 config()
 const app = express()
@@ -23,7 +24,10 @@ app.get('/', (req, res) => {
 		const metaTitleOG = metaTags.find(
 			(node) => node.attributes?.property === 'og:title'
 		)
-		metaTitleOG.setAttribute('content', req.query.t)
+		metaTitleOG.setAttribute(
+			'content',
+			decodeURLFormattedTimestamp(req.query.t)
+		)
 		res.send(parsedIndex.toString())
 	} else {
 		res.send(indexContentString)

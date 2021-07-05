@@ -6,7 +6,11 @@
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
-	import { formatLocale, getShortTimeZoneName } from './format'
+	import {
+		formatLocale,
+		getShortTimeZoneName,
+		encodeURLFormattedTimestamp,
+	} from './format'
 
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
@@ -36,7 +40,9 @@
 		query = query || qs.parse(location.search)
 		localStorage.setItem('shareLocale', shareLocale)
 		if (shareLocale) {
-			query.t = `${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`
+			query.t = encodeURLFormattedTimestamp(
+				`${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`
+			)
 		} else {
 			delete query.t
 		}
