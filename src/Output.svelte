@@ -1,23 +1,20 @@
 <script>
+	import { formatLocale, getTimeZoneName, getUNIX, getISO } from './format'
 	export let timestamp
 </script>
 
 <section>
 	<!-- Locale timestamp -->
-	<p class="label">
-		{(timestamp.toString().split('(')[1] || '').slice(0, -1)}
-	</p>
-	<p>
-		<time datetime={timestamp.toISOString()}>{timestamp.toLocaleString()}</time>
-	</p>
+	<p class="label">{getTimeZoneName(timestamp)}</p>
+	<p><time datetime={getISO(timestamp)}>{formatLocale(timestamp)}</time></p>
 	<hr />
 	<!-- Unix timestamp -->
 	<p class="label">UNIX</p>
-	<p><samp>{(timestamp.getTime() / 1000) | 0}</samp></p>
+	<p><samp>{getUNIX(timestamp)}</samp></p>
 	<hr />
 	<!-- ISO 8601 -->
 	<p class="label">ISO 8601</p>
-	<p><samp id="iso">{timestamp.toISOString()}</samp></p>
+	<p><samp id="iso">{getISO(timestamp)}</samp></p>
 </section>
 
 <style>
