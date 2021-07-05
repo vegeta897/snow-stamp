@@ -18,11 +18,10 @@ a {
 }
 
 ::selection {
-	background: #69eaff; /* WebKit/Blink Browsers */
+	background: #69eaff;
 }
-
 ::-moz-selection {
-	background: #69eaff; /* WebKit/Blink Browsers */
+	background: #69eaff;
 }
 
 label {
