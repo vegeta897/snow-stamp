@@ -6,10 +6,7 @@
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
-
-	const EPOCH = isNaN(parseInt(process.env.SNOWFLAKE_EPOCH))
-		? 1420070400000
-		: parseInt(process.env.SNOWFLAKE_EPOCH)
+	import { formatLocale, getShortTimeZoneName } from './format'
 
 	let snowflake = qs.parse(location.search).s || '',
 		timestamp,
@@ -27,7 +24,13 @@
 			window.history.replaceState(
 				null,
 				null,
-				qs.stringify({ s: snowflake }, '?')
+				qs.stringify(
+					{
+						s: snowflake,
+						t: `${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`,
+					},
+					'?'
+				)
 			)
 			url.set(window.location.href)
 		} catch (e) {
