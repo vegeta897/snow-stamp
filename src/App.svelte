@@ -41,7 +41,7 @@
 		localStorage.setItem('shareLocale', shareLocale)
 		if (shareLocale) {
 			query.t = encodeURLFormattedTimestamp(
-				`${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`
+				`${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`.trim()
 			)
 		} else {
 			delete query.t

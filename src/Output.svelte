@@ -5,7 +5,9 @@
 
 <section>
 	<!-- Locale timestamp -->
-	<p class="label">{getTimeZoneName(timestamp)}</p>
+	{#if getTimeZoneName(timestamp)}
+		<p class="label">{getTimeZoneName(timestamp)}</p>
+	{/if}
 	<p><time datetime={getISO(timestamp)}>{formatLocale(timestamp)}</time></p>
 	<hr />
 	<!-- Unix timestamp -->

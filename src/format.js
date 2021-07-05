@@ -3,7 +3,13 @@ export function formatLocale(date) {
 }
 
 export function getTimeZoneName(date) {
-	return (date.toString().split('(')[1] || '').slice(0, -1)
+	const dateString = date.toString()
+	if (dateString.includes('(')) {
+		return dateString.split('(')[1].slice(0, -1)
+	} else if (dateString.includes('GMT')) {
+		return 'GMT' + dateString.split('GMT')[1].slice(0, -1)
+	}
+	return ''
 }
 
 export function getUNIX(date) {
@@ -18,6 +24,7 @@ export function getISO(date) {
 // This is guesswork prone to erroneous results and needs to be refined over time
 export function getShortTimeZoneName(date) {
 	const tzName = getTimeZoneName(date)
+	if (!tzName) return tzName
 	// Keep GMT/UTC or +/- offsets
 	if (/^(gmt|utc|\+|-)/gi.test(tzName)) return tzName
 	const tzWords = tzName.split(' ')
