@@ -6,6 +6,9 @@
 <script>
 	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
 
+	export let shareLocale
+	export let updateURL
+
 	let copyText
 
 	function copy() {
@@ -20,6 +23,15 @@
 </script>
 
 <fieldset>
+	<label>
+		<input
+			type="checkbox"
+			bind:checked={shareLocale}
+			on:change={() => updateURL()}
+		/>
+		<span>Show timestamp when sharing</span>
+		<span>(e.g. Discord embeds)</span>
+	</label>
 	<input
 		type="text"
 		id="share-url"
@@ -31,8 +43,16 @@
 </fieldset>
 
 <style>
-	input {
+	label {
+		margin-bottom: 0.3em;
+	}
+
+	input[type='text'] {
 		width: 340px;
+	}
+
+	input[type='checkbox'] {
+		margin-right: 0.3em;
 	}
 
 	fieldset {
@@ -41,7 +61,7 @@
 		padding: 0;
 	}
 
-	input,
+	input[type='text'],
 	button {
 		padding: 0.4em;
 		margin: 0 0.2em;
@@ -51,8 +71,12 @@
 		line-height: 1.2em;
 	}
 
+	span {
+		display: inline-block;
+	}
+
 	@media (max-width: 749px) {
-		input {
+		input[type='text'] {
 			width: 190px;
 		}
 	}

@@ -12,6 +12,10 @@
 		timestamp,
 		error
 
+	const storedShareLocale = localStorage.getItem('shareLocale')
+	let shareLocale =
+		storedShareLocale === undefined ? true : JSON.parse(storedShareLocale)
+
 	$: update(snowflake)
 
 	// Refresh the output
@@ -21,21 +25,23 @@
 		if (!snowflake.trim()) return
 		try {
 			timestamp = validateSnowflake(snowflake, +process.env.SNOWFLAKE_EPOCH)
-			window.history.replaceState(
-				null,
-				null,
-				qs.stringify(
-					{
-						s: snowflake,
-						t: `${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`,
-					},
-					'?'
-				)
-			)
-			url.set(window.location.href)
+			updateURL({ s: snowflake })
 		} catch (e) {
 			error = e
 		}
+	}
+
+	// Update the URL
+	function updateURL(query) {
+		query = query || qs.parse(location.search)
+		localStorage.setItem('shareLocale', shareLocale)
+		if (shareLocale) {
+			query.t = `${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`
+		} else {
+			delete query.t
+		}
+		window.history.replaceState(null, null, qs.stringify(query, '?'))
+		url.set(window.location.href)
 	}
 </script>
 
@@ -63,7 +69,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share />
+		<Share bind:shareLocale {updateURL} />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
