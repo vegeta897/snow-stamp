@@ -1,24 +1,30 @@
 <script>
 	import qs from 'querystringify'
-	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
+	import {
+		selectTextOnFocus,
+		blurOnEscape,
+		getLocalStorageBoolean,
+		detectLocale,
+		detectTimeZone,
+		encodeSnowflake,
+		decodeSnowflake,
+	} from './util.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
 	import Share, { url } from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
-	import {
-		formatLocale,
-		getShortTimeZoneName,
-		encodeURLFormattedTimestamp,
-	} from './format'
 
-	let snowflake = qs.parse(location.search).s || '',
+	const queries = qs.parse(location.search)
+	let snowflake = queries.s || (queries.f && decodeSnowflake(queries.f)) || '',
+		validSnowflake,
 		timestamp,
 		error
 
-	const storedShareLocale = localStorage.getItem('shareLocale')
-	let shareLocale =
-		storedShareLocale === undefined ? true : JSON.parse(storedShareLocale)
+	let shareStamp = getLocalStorageBoolean('shareStamp', true)
+	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
+
+	let locale, tz
 
 	$: update(snowflake)
 
@@ -26,25 +32,38 @@
 	function update() {
 		timestamp = null
 		error = null
+		validSnowflake = false
 		if (!snowflake.trim()) return
 		try {
 			timestamp = validateSnowflake(snowflake, +process.env.SNOWFLAKE_EPOCH)
-			updateURL({ s: snowflake })
+			validSnowflake = true
+			updateURL()
 		} catch (e) {
 			error = e
 		}
 	}
 
 	// Update the URL
-	function updateURL(query) {
-		query = query || qs.parse(location.search)
-		localStorage.setItem('shareLocale', shareLocale)
-		if (shareLocale) {
-			query.t = encodeURLFormattedTimestamp(
-				`${formatLocale(timestamp)} ${getShortTimeZoneName(timestamp)}`.trim()
-			)
-		} else {
-			delete query.t
+	function updateURL(updateOptions) {
+		if (updateOptions) {
+			localStorage.setItem('shareStamp', shareStamp)
+			localStorage.setItem('shortenSnowflake', shortenSnowflake)
+		}
+		const query = {}
+		if (validSnowflake) {
+			if (shareStamp) {
+				if (locale === undefined) locale = detectLocale()
+				if (locale) query.l = locale
+				if (tz === undefined) tz = detectTimeZone()
+				query.z = tz
+			}
+			if (validSnowflake) {
+				if (shortenSnowflake) {
+					query.f = encodeSnowflake(snowflake)
+				} else {
+					query.s = snowflake
+				}
+			}
 		}
 		window.history.replaceState(null, null, qs.stringify(query, '?'))
 		url.set(window.location.href)
@@ -75,7 +94,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share bind:shareLocale {updateURL} />
+		<Share bind:shareStamp bind:shortenSnowflake {updateURL} />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>

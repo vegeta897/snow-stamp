@@ -4,9 +4,10 @@
 </script>
 
 <script>
-	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
+	import { selectTextOnFocus, blurOnEscape } from './util.js'
 
-	export let shareLocale
+	export let shareStamp
+	export let shortenSnowflake
 	export let updateURL
 
 	let copyText
@@ -26,11 +27,19 @@
 	<label>
 		<input
 			type="checkbox"
-			bind:checked={shareLocale}
-			on:change={() => updateURL()}
+			bind:checked={shareStamp}
+			on:change={() => updateURL(true)}
 		/>
 		<span>Show timestamp when sharing</span>
 		<span>(e.g. Discord embeds)</span>
+	</label>
+	<label>
+		<input
+			type="checkbox"
+			bind:checked={shortenSnowflake}
+			on:change={() => updateURL(true)}
+		/>
+		Shorten snowflake in URL
 	</label>
 	<input
 		type="text"
