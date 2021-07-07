@@ -17,7 +17,9 @@ Pull requests and issues are welcome!
 
 ## Develop
 
-`npm install && npm run dev`
+1. `npm install && npm run dev`
+2. Write code
+3. `npm run format && npm run test`
 
 ### Epoch
 
