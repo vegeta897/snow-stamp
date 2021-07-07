@@ -1,7 +1,7 @@
 export function getLocalStorageBoolean(name, defaultValue) {
 	const loadedValue = localStorage.getItem(name)
 	try {
-		return loadedValue === undefined ? defaultValue : JSON.parse(loadedValue)
+		return (loadedValue && JSON.parse(loadedValue)) || defaultValue
 	} catch (e) {
 		return defaultValue
 	}
