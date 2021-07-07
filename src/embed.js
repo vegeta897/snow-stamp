@@ -20,18 +20,18 @@ function adaptLocale(locale) {
 	return 'en'
 }
 
+let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
+
 export function getEmbedTitle({ l, z, s, f }) {
 	if (!z) return false // No time zone means embed disabled
 	let embedDate
 	if (s) {
 		try {
-			embedDate = validateSnowflake(s, +process.env.SNOWFLAKE_EPOCH)
+			embedDate = validateSnowflake(s, epoch)
 		} catch (e) {}
 	} else if (f) {
 		try {
-			embedDate = validateSnowflake(
-				decodeSnowflake(f, +process.env.SNOWFLAKE_EPOCH)
-			)
+			embedDate = validateSnowflake(decodeSnowflake(f, epoch))
 		} catch (e) {}
 	}
 	if (!embedDate) return false
