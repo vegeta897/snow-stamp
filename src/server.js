@@ -14,22 +14,24 @@ const __dirname = path.dirname(__filename)
 const indexContent = fs.readFileSync(
 	path.resolve(__dirname, '../public', 'index.html')
 )
-const indexContentString = indexContent.toString()
 
 app.get('/', (req, res) => {
+	const parsedIndex = nodeHTMLParser.parse(indexContent)
+	const headElement = parsedIndex.querySelector('head')
+	headElement.insertAdjacentHTML(
+		'afterbegin',
+		'<script>window.__SNOWSTAMP_DYNAMIC__ = true</script>'
+	)
 	const embedTitle = getEmbedTitle(req.query)
 	if (embedTitle) {
-		console.log('embed title:', embedTitle)
-		const parsedIndex = nodeHTMLParser.parse(indexContent)
-		const metaTags = parsedIndex.querySelectorAll('html head meta')
+		console.log(`${new Date().toLocaleString()} - ${embedTitle}`)
+		const metaTags = headElement.querySelectorAll('meta')
 		const metaTitleOG = metaTags.find(
 			(node) => node.attributes?.property === 'og:title'
 		)
 		metaTitleOG.setAttribute('content', embedTitle)
-		res.send(parsedIndex.toString())
-	} else {
-		res.send(indexContentString)
 	}
+	res.send(parsedIndex.toString())
 })
 
 app.use('/', express.static(path.resolve(__dirname, `../public`)))

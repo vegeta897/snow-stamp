@@ -23,6 +23,8 @@
 
 	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
 
+	let dynamicMode = window.__SNOWSTAMP_DYNAMIC__
+
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
 
@@ -47,13 +49,13 @@
 
 	// Update the URL
 	function updateURL(updateOptions) {
-		if (updateOptions) {
+		if (dynamicMode && updateOptions) {
 			localStorage.setItem('shareStamp', shareStamp)
 			localStorage.setItem('shortenSnowflake', shortenSnowflake)
 		}
 		const query = {}
 		if (validSnowflake) {
-			if (shareStamp) {
+			if (dynamicMode && shareStamp) {
 				if (locale === undefined) locale = detectLocale()
 				if (locale) query.l = locale
 				if (tz === undefined) tz = detectTimeZone()
@@ -96,7 +98,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share bind:shareStamp bind:shortenSnowflake {updateURL} />
+		<Share bind:shareStamp bind:shortenSnowflake {updateURL} {dynamicMode} />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>

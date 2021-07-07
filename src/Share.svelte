@@ -9,6 +9,7 @@
 	export let shareStamp
 	export let shortenSnowflake
 	export let updateURL
+	export let dynamicMode
 
 	let copyText
 
@@ -24,15 +25,17 @@
 </script>
 
 <fieldset>
-	<label>
-		<input
-			type="checkbox"
-			bind:checked={shareStamp}
-			on:change={() => updateURL(true)}
-		/>
-		<span>Show timestamp when sharing</span>
-		<span>(e.g. Discord embeds)</span>
-	</label>
+	{#if dynamicMode}
+		<label>
+			<input
+				type="checkbox"
+				bind:checked={shareStamp}
+				on:change={() => updateURL(true)}
+			/>
+			<span>Show timestamp when sharing</span>
+			<span>(e.g. Discord embeds)</span>
+		</label>
+	{/if}
 	<label>
 		<input
 			type="checkbox"
