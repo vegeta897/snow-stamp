@@ -15,7 +15,9 @@ dayjs.extend(advancedFormat)
 function adaptLocale(locale) {
 	if (locale === 'zn') return 'zh-cn'
 	if (locale === 'no') return 'nb'
-	return locale
+	if (dayjsLocales.includes(locale)) return locale
+	if (dayjsLocales.includes(locale.split('-')[0])) return locale.split('-')[0]
+	return 'en'
 }
 
 export function getEmbedTitle({ l, z, s, f }) {
