@@ -21,6 +21,8 @@
 		timestamp,
 		error
 
+	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
+
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
 
@@ -35,7 +37,7 @@
 		validSnowflake = false
 		if (!snowflake.trim()) return
 		try {
-			timestamp = validateSnowflake(snowflake, +process.env.SNOWFLAKE_EPOCH)
+			timestamp = validateSnowflake(snowflake, epoch)
 			validSnowflake = true
 			updateURL()
 		} catch (e) {
