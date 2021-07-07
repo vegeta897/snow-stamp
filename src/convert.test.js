@@ -20,6 +20,7 @@ test('converts snowflake to correct date with custom epoch', () => {
 
 test('returns date for valid snowflake', () => {
 	expect(validateSnowflake(snowflake)).toBeInstanceOf(Date)
+	expect(validateSnowflake(snowflake, 1000)).toBeInstanceOf(Date)
 })
 
 test('throws if snowflake is not an integer', () => {
