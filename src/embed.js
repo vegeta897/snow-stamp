@@ -33,15 +33,13 @@ export function getEmbedTitle({ l, z, s, f }) {
 		} catch (e) {}
 	}
 	if (!embedDate) return false
-	embedDate = dayjs(embedDate)
+	embedDate = new dayjs(embedDate).tz(TZ_NAMES[parseInt(z, 36)] || 'UTC')
 	if (l) embedDate = embedDate.locale(adaptLocale(l))
-	if (parseInt(z, 36) >= 0) {
-		const tzName = TZ_NAMES[parseInt(z, 36)]
-		embedDate = embedDate.tz(tzName)
-	} else {
-		embedDate = embedDate.tz('UTC')
+	// There's a bug in Day.js where setting locale on a UTC time zone causes the original offset to be subtracted twice, so we use .utc() to force correct UTC time
+	if (embedDate.utcOffset() === 0) {
+		return embedDate.utc().format('L LTS') + ' UTC'
 	}
-	return embedDate.format('L LT z')
+	return embedDate.format('L LTS z')
 }
 
 // https://unpkg.com/dayjs@1.10.6/locale.json
