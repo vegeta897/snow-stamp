@@ -37,6 +37,8 @@ Otherwise, start the server:
 
 `npm start`
 
+The server runs on port 3000 by default, but you can set `PORT` in your environment variables or with an `.env` file.
+
 ---
 
 _Made with svelte_
