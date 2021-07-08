@@ -15,16 +15,20 @@ const indexContent = fs.readFileSync(
 	path.resolve(__dirname, '../public', 'index.html')
 )
 
-app.get('/', (req, res) => {
+app.get('/', ({ query }, res) => {
 	const parsedIndex = nodeHTMLParser.parse(indexContent)
 	const headElement = parsedIndex.querySelector('head')
 	headElement.insertAdjacentHTML(
 		'afterbegin',
 		'<script>window.__SNOWSTAMP_DYNAMIC__ = true</script>'
 	)
-	const embedTitle = getEmbedTitle(req.query)
+	const embedTitle = getEmbedTitle(query)
 	if (embedTitle) {
-		console.log(`${new Date().toLocaleString()} - ${embedTitle}`)
+		console.log(
+			`${new Date().toLocaleString()} - l=${query.l} z=${
+				query.z
+			} - ${embedTitle}`
+		)
 		const metaTags = headElement.querySelectorAll('meta')
 		const metaTitleOG = metaTags.find(
 			(node) => node.attributes?.property === 'og:title'
