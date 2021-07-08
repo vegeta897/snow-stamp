@@ -11,66 +11,66 @@
 	} from './util.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
-	import Share, { url } from './Share.svelte'
+	import Share from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
 
+	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
+
 	const queries = qs.parse(location.search)
 	let snowflake = queries.s || (queries.f && decodeSnowflake(queries.f)) || '',
-		validSnowflake,
 		timestamp,
-		error
+		error,
+		url
 
 	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
-
-	let dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
 
 	let locale, tz
 
-	$: update(snowflake)
+	$: updateSnowflake(snowflake)
+	$: dynamicMode && updateShareOptions(shareStamp, shortenSnowflake)
 
-	// Refresh the output
-	function update() {
+	// Validate snowflake and update timestamp or error
+	function updateSnowflake() {
 		timestamp = null
 		error = null
-		validSnowflake = false
 		if (!snowflake.trim()) return
 		try {
 			timestamp = validateSnowflake(snowflake, epoch)
-			validSnowflake = true
 			updateURL()
 		} catch (e) {
 			error = e
 		}
 	}
 
+	// Update share options
+	function updateShareOptions() {
+		localStorage.setItem('shareStamp', shareStamp)
+		localStorage.setItem('shortenSnowflake', shortenSnowflake)
+		updateURL()
+	}
+
 	// Update the URL
-	function updateURL(updateOptions) {
-		if (dynamicMode && updateOptions) {
-			localStorage.setItem('shareStamp', shareStamp)
-			localStorage.setItem('shortenSnowflake', shortenSnowflake)
-		}
+	function updateURL() {
 		const query = {}
-		if (validSnowflake) {
+		if (timestamp) {
 			if (dynamicMode && shareStamp) {
 				if (locale === undefined) locale = detectLocale()
 				if (locale) query.l = locale
 				if (tz === undefined) tz = detectTimeZone()
 				query.z = tz
 			}
-			if (validSnowflake) {
-				if (shortenSnowflake) {
-					query.f = encodeSnowflake(snowflake)
-				} else {
-					query.s = snowflake
-				}
+			if (shortenSnowflake) {
+				query.f = encodeSnowflake(snowflake)
+			} else {
+				query.s = snowflake
 			}
 		}
 		window.history.replaceState(null, null, qs.stringify(query, '?'))
-		url.set(window.location.href)
+		url = window.location.href
 	}
 </script>
 
@@ -98,7 +98,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share bind:shareStamp bind:shortenSnowflake {updateURL} {dynamicMode} />
+		<Share bind:url bind:shareStamp bind:shortenSnowflake {dynamicMode} />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
