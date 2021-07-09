@@ -5,6 +5,7 @@ import nodeHTMLParser from 'node-html-parser'
 import express from 'express'
 import { config } from 'dotenv'
 import { getEmbedTitle } from './embed.js'
+import { TZ_NAMES } from './util'
 
 config()
 const app = express()
@@ -25,8 +26,8 @@ app.get('/', ({ query }, res) => {
 	const embedTitle = getEmbedTitle(query)
 	if (embedTitle) {
 		console.log(
-			`${new Date().toLocaleString()} - l=${query.l} z=${
-				query.z
+			`${new Date().toLocaleString()} - l=${query.l} z=${query.z} ${
+				TZ_NAMES[parseInt(query.z, 36)] || ''
 			} - ${embedTitle}`
 		)
 		const metaTags = headElement.querySelectorAll('meta')
