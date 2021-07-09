@@ -5,7 +5,7 @@ import nodeHTMLParser from 'node-html-parser'
 import express from 'express'
 import { config } from 'dotenv'
 import { getEmbedTitle } from './embed.js'
-import { TZ_NAMES } from './util'
+import { TZ_NAMES } from './util.js'
 
 config()
 const app = express()
