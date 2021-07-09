@@ -7,6 +7,7 @@ import css from 'rollup-plugin-css-only'
 import image from '@rollup/plugin-image'
 import { config } from 'dotenv'
 import replace from '@rollup/plugin-replace'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -81,6 +82,8 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
+
+		production && visualizer(),
 	],
 	watch: {
 		clearScreen: false,

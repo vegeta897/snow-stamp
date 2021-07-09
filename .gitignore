@@ -8,6 +8,7 @@
 
 # production
 /public/build/
+stats.html
 
 # misc
 .DS_Store
