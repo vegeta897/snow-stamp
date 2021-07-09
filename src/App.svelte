@@ -1,46 +1,76 @@
 <script>
 	import qs from 'querystringify'
-	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
+	import {
+		selectTextOnFocus,
+		blurOnEscape,
+		getLocalStorageBoolean,
+		detectLocale,
+		detectTimeZone,
+		encodeSnowflake,
+		decodeSnowflake,
+	} from './util.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
-	import Share, { url } from './Share.svelte'
+	import Share from './Share.svelte'
 	import Credits from './Credits.svelte'
+	import { validateSnowflake } from './convert'
 
-	const EPOCH = isNaN(parseInt(process.env.SNOWFLAKE_EPOCH))
-		? 1420070400000
-		: parseInt(process.env.SNOWFLAKE_EPOCH)
+	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 
-	let snowflake = qs.parse(location.search).s || '',
+	const queries = qs.parse(location.search)
+	let snowflake = queries.s || (queries.f && decodeSnowflake(queries.f)) || '',
 		timestamp,
-		error
+		error,
+		url
 
-	$: update(snowflake)
+	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
 
-	// Refresh the output
-	function update() {
+	let shareStamp = getLocalStorageBoolean('shareStamp', true)
+	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
+
+	let locale, tz
+
+	$: updateSnowflake(snowflake)
+	$: dynamicMode && updateShareOptions(shareStamp, shortenSnowflake)
+
+	// Validate snowflake and update timestamp or error
+	function updateSnowflake() {
 		timestamp = null
 		error = null
 		if (!snowflake.trim()) return
-		if (!Number.isInteger(+snowflake)) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes contain only numbers."
-			return
+		try {
+			timestamp = validateSnowflake(snowflake, epoch)
+			updateURL()
+		} catch (e) {
+			error = e
 		}
-		if (snowflake < 4194304) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes are much larger numbers."
-			return
+	}
+
+	// Update share options
+	function updateShareOptions() {
+		localStorage.setItem('shareStamp', shareStamp)
+		localStorage.setItem('shortenSnowflake', shortenSnowflake)
+		updateURL()
+	}
+
+	// Update the URL
+	function updateURL() {
+		const query = {}
+		if (timestamp) {
+			if (dynamicMode && shareStamp) {
+				if (locale === undefined) locale = detectLocale()
+				if (locale) query.l = locale
+				if (tz === undefined) tz = detectTimeZone()
+				query.z = tz
+			}
+			if (shortenSnowflake) {
+				query.f = encodeSnowflake(snowflake)
+			} else {
+				query.s = snowflake
+			}
 		}
-		const _timestamp = new Date(snowflake / 4194304 + EPOCH)
-		if (isNaN(_timestamp.getTime())) {
-			error =
-				"That doesn't look like a snowflake. Snowflakes have fewer digits."
-			return
-		}
-		timestamp = _timestamp
-		console.log(timestamp)
-		window.history.replaceState(null, null, qs.stringify({ s: snowflake }, '?'))
-		url.set(window.location.href)
+		window.history.replaceState(null, null, qs.stringify(query, '?'))
+		url = window.location.href
 	}
 </script>
 
@@ -68,7 +98,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share />
+		<Share bind:url bind:shareStamp bind:shortenSnowflake {dynamicMode} />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>

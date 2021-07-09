@@ -1,10 +1,10 @@
-<script context="module">
-	import { writable } from 'svelte/store'
-	export const url = writable('')
-</script>
-
 <script>
-	import { selectTextOnFocus, blurOnEscape } from './inputDirectives.js'
+	import { selectTextOnFocus, blurOnEscape } from './util.js'
+
+	export let url
+	export let shareStamp
+	export let shortenSnowflake
+	export let dynamicMode
 
 	let copyText
 
@@ -16,23 +16,42 @@
 		copyText = '✔️ Copied!'
 	}
 
-	url.subscribe(() => (copyText = '📋 Copy'))
+	$: (() => (copyText = '📋 Copy'))(url)
 </script>
 
 <fieldset>
+	{#if dynamicMode}
+		<label>
+			<input type="checkbox" bind:checked={shareStamp} />
+			<span>Show timestamp when sharing</span>
+			<span>(e.g. Discord embeds)</span>
+		</label>
+	{/if}
+	<label>
+		<input type="checkbox" bind:checked={shortenSnowflake} />
+		Shorten snowflake in URL
+	</label>
 	<input
 		type="text"
 		id="share-url"
 		readonly
 		use:selectTextOnFocus
 		use:blurOnEscape
-		bind:value={$url}
+		bind:value={url}
 	/><button on:click={copy}>{copyText}</button>
 </fieldset>
 
 <style>
-	input {
-		width: 340px;
+	label {
+		margin-bottom: 0.3em;
+	}
+
+	#share-url {
+		width: 380px;
+	}
+
+	input[type='checkbox'] {
+		margin-right: 0.3em;
 	}
 
 	fieldset {
@@ -41,7 +60,7 @@
 		padding: 0;
 	}
 
-	input,
+	input[type='text'],
 	button {
 		padding: 0.4em;
 		margin: 0 0.2em;
@@ -51,8 +70,12 @@
 		line-height: 1.2em;
 	}
 
+	span {
+		display: inline-block;
+	}
+
 	@media (max-width: 749px) {
-		input {
+		#share-url {
 			width: 190px;
 		}
 	}
