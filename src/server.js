@@ -17,6 +17,13 @@ const indexContent = fs.readFileSync(
 )
 
 app.get('/', ({ query }, res) => {
+	if (query.z || query.l) {
+		console.log(
+			`${new Date().toLocaleString()} - l=${query.l || ''} z=${
+				query.z || ''
+			} s=${query.s || ''} f=${query.f || ''}`
+		)
+	}
 	const parsedIndex = nodeHTMLParser.parse(indexContent)
 	const headElement = parsedIndex.querySelector('head')
 	headElement.insertAdjacentHTML(
@@ -26,15 +33,15 @@ app.get('/', ({ query }, res) => {
 	const embedTitle = getEmbedTitle(query)
 	if (embedTitle) {
 		console.log(
-			`${new Date().toLocaleString()} - l=${query.l} z=${query.z} ${
-				TZ_NAMES[parseInt(query.z, 36)] || ''
-			} - ${embedTitle}`
+			`Embed: ${TZ_NAMES[parseInt(query.z, 36)] || ''} - ${embedTitle}`
 		)
 		const metaTags = headElement.querySelectorAll('meta')
 		const metaTitleOG = metaTags.find(
 			(node) => node.attributes?.property === 'og:title'
 		)
 		metaTitleOG.setAttribute('content', embedTitle)
+	} else if (query.z || query.l) {
+		console.log('Invalid embed!')
 	}
 	res.send(parsedIndex.toString())
 })
