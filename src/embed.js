@@ -23,6 +23,11 @@ function adaptLocale(locale) {
 let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
 
 export function getEmbedTitle({ l, z, s, f }) {
+	// Sanitize inputs (queries sent more than once become arrays, thanks Viper)
+	l = l && l.toString()
+	z = z && z.toString()
+	s = s && s.toString()
+	f = f && f.toString()
 	if (!z) return false // No time zone means embed disabled
 	let embedDate
 	if (s) {
