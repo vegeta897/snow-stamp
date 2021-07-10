@@ -2,8 +2,10 @@ export function formatLocale(date) {
 	return date.toLocaleString()
 }
 
-export function getUNIX(date) {
-	return (date.getTime() / 1000) | 0
+export function getUNIX(date, useMS) {
+	let unix = date.getTime()
+	if (!useMS) unix = (unix / 1000) | 0
+	return unix
 }
 
 export function getISO(date) {
