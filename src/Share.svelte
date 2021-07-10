@@ -1,5 +1,6 @@
 <script>
 	import { selectTextOnFocus, blurOnEscape } from './util.js'
+	import Checkbox from './Checkbox.svelte'
 
 	export let url
 	export let shareStamp
@@ -20,17 +21,15 @@
 </script>
 
 <fieldset>
-	{#if dynamicMode}
-		<label>
-			<input type="checkbox" bind:checked={shareStamp} />
-			<span>Show timestamp when sharing</span>
-			<span>(e.g. Discord embeds)</span>
-		</label>
-	{/if}
-	<label>
-		<input type="checkbox" bind:checked={shortenSnowflake} />
-		Shorten snowflake in URL
-	</label>
+	<div class="options">
+		{#if dynamicMode}
+			<Checkbox
+				text="Show timestamp on Discord/Twitter"
+				bind:checked={shareStamp}
+			/>
+		{/if}
+		<Checkbox text="Shorten snowflake in URL" bind:checked={shortenSnowflake} />
+	</div>
 	<input
 		type="text"
 		id="share-url"
@@ -42,22 +41,19 @@
 </fieldset>
 
 <style>
-	label {
-		margin-bottom: 0.3em;
-	}
-
 	#share-url {
 		width: 380px;
 	}
 
-	input[type='checkbox'] {
-		margin-right: 0.3em;
-	}
-
 	fieldset {
 		border: none;
-		margin: 2em auto;
+		margin: 1.8em auto 2em;
 		padding: 0;
+	}
+
+	.options {
+		text-align: left;
+		margin-left: 160px;
 	}
 
 	input[type='text'],
@@ -70,11 +66,10 @@
 		line-height: 1.2em;
 	}
 
-	span {
-		display: inline-block;
-	}
-
 	@media (max-width: 749px) {
+		.options {
+			margin-left: 32px;
+		}
 		#share-url {
 			width: 190px;
 		}
