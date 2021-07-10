@@ -24,7 +24,8 @@
 		"dayjs": "^1.10.6",
 		"express": "^4.17.1",
 		"node-html-parser": "^3.3.6",
-		"querystringify": "^2.2.0"
+		"querystringify": "^2.2.0",
+		"svelte-media-query": "^1.1.1"
 	},
 	"scripts": {
 		"build": "rollup -c",

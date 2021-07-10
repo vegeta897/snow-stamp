@@ -1,5 +1,20 @@
 <script>
+	import MediaQuery from 'svelte-media-query'
 	import { formatLocale, getTimeZoneName, getUNIX, getISO } from './format'
+	import Switch from './Switch.svelte'
+	import { getLocalStorageBoolean } from './util'
+
+	let showUnixMilliseconds = getLocalStorageBoolean(
+		'showUnixMilliseconds',
+		false
+	)
+	let unixUnits
+	$: unixUnits = showUnixMilliseconds ? 'milliseconds' : 'seconds'
+
+	$: (() => {
+		localStorage.setItem('showUnixMilliseconds', showUnixMilliseconds)
+	})(showUnixMilliseconds)
+
 	export let timestamp
 </script>
 
@@ -11,8 +26,18 @@
 	<p><time datetime={getISO(timestamp)}>{formatLocale(timestamp)}</time></p>
 	<hr />
 	<!-- Unix timestamp -->
-	<p class="label">UNIX</p>
-	<p><samp>{getUNIX(timestamp)}</samp></p>
+	<div style="display: flex">
+		<div style="flex: 1 0">
+			<p class="label">UNIX {unixUnits}</p>
+			<p><samp>{getUNIX(timestamp, showUnixMilliseconds)}</samp></p>
+		</div>
+		<div>
+			<p class="label" style="margin-bottom: 9px;">Units</p>
+			<MediaQuery query="(max-width: 749px)" let:matches>
+				<Switch bind:checked={showUnixMilliseconds} small={matches} />
+			</MediaQuery>
+		</div>
+	</div>
 	<hr />
 	<!-- ISO 8601 -->
 	<p class="label">ISO 8601</p>
