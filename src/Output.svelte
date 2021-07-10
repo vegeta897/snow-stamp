@@ -32,8 +32,8 @@
 			<p><samp>{getUNIX(timestamp, showUnixMilliseconds)}</samp></p>
 		</div>
 		<div>
-			<p class="label" style="margin-bottom: 9px;">Units</p>
 			<MediaQuery query="(max-width: 749px)" let:matches>
+				<p class="label" style="margin-bottom: {matches ? 5 : 9}px;">Units</p>
 				<Switch bind:checked={showUnixMilliseconds} small={matches} />
 			</MediaQuery>
 		</div>
