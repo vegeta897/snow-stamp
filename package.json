@@ -23,7 +23,7 @@
 	"dependencies": {
 		"dayjs": "^1.10.6",
 		"express": "^4.17.1",
-		"node-html-parser": "^3.3.6",
+		"node-html-parser": "^4.0.0",
 		"querystringify": "^2.2.0",
 		"svelte-media-query": "^1.1.1"
 	},
