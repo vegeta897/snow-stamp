@@ -173,5 +173,9 @@
 		.input-icon {
 			font-size: 1.3em;
 		}
+
+		hr {
+			width: 240px;
+		}
 	}
 </style>
