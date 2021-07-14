@@ -21,10 +21,6 @@ Pull requests and issues are welcome!
 2. Write code
 3. `npm run format && npm run test`
 
-### Epoch
-
-You can use a custom epoch instead of [Discord's](https://discord.com/developers/docs/reference#snowflakes) by setting environment variable `SNOWFLAKE_EPOCH` to the desired integer. You can create a `.env` file in root to set this variable.
-
 ## Deploy
 
 You can deploy a static site or run the included server. The benefit of using the server is that links containing snowflakes will show the timestamp in embeds when posted on services like Discord.
@@ -39,7 +35,11 @@ Otherwise, start the server:
 
 `npm start`
 
-The server runs on port 3000 by default, but you can set `PORT` in your environment variables or with an `.env` file.
+The server runs on port 3000 by default, but you can set `PORT` in your environment variables. You can create a `.env` file in root to set this variable.
+
+### Custom Epoch
+
+You can use a custom epoch instead of [Discord's](https://discord.com/developers/docs/reference#snowflakes) by setting environment variable `SNOWFLAKE_EPOCH` to the desired integer or with an `.env` file.
 
 ---
 
