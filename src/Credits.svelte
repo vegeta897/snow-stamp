@@ -5,16 +5,6 @@
 
 <div class="credits">
 	<p>
-		<a class="github" href="https://github.com/vegeta897/snow-stamp"
-			><img
-				height="24px"
-				src={github}
-				alt="GitHub"
-				style="position: relative; margin-right: 2px; top: 5px; margin-top: -5px;"
-			/><span style="text-decoration: none">&nbsp;</span>GitHub</a
-		>
-	</p>
-	<p>
 		<span>Questions or comments?</span>
 		<span
 			>Add me<img
@@ -31,6 +21,16 @@
 			><a href="https://www.buymeacoffee.com/vegeta897" target="_blank"
 				>buy me a coffee!<span style="text-decoration: none">&nbsp;💙</span></a
 			></span
+		>
+	</p>
+	<p>
+		<a class="github" href="https://github.com/vegeta897/snow-stamp"
+			><img
+				height="24px"
+				src={github}
+				alt="GitHub"
+				style="position: relative; margin-right: 2px; top: 5px; margin-top: -5px;"
+			/><span style="text-decoration: none">&nbsp;</span>GitHub</a
 		>
 	</p>
 </div>

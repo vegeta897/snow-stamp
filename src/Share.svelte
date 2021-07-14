@@ -1,23 +1,40 @@
 <script>
 	import { selectTextOnFocus, blurOnEscape } from './util.js'
+	import { getUNIX } from './format'
 	import Checkbox from './Checkbox.svelte'
+
+	const COPY = '📋 Copy',
+		COPIED = '✔️ Copied!'
 
 	export let url
 	export let shareStamp
 	export let shortenSnowflake
+	export let timestamp
 	export let dynamicMode
 
-	let copyText
+	let urlCopyText, timestampCopyText
 
-	function copy() {
+	// TODO Refactor this and the input/button elements
+	function copyURL() {
 		const input = document.getElementById('share-url')
 		input.select()
 		input.setSelectionRange(0, 999) // For mobile?
 		document.execCommand('copy')
-		copyText = '✔️ Copied!'
+		urlCopyText = COPIED
+		timestampCopyText = COPY
 	}
 
-	$: (() => (copyText = '📋 Copy'))(url)
+	function copyTimestamp() {
+		const input = document.getElementById('share-timestamp')
+		input.select()
+		input.setSelectionRange(0, 999) // For mobile?
+		document.execCommand('copy')
+		timestampCopyText = COPIED
+		urlCopyText = COPY
+	}
+
+	$: (() => (urlCopyText = COPY))(url)
+	$: (() => (timestampCopyText = COPY))(timestamp)
 </script>
 
 <fieldset>
@@ -36,8 +53,19 @@
 		readonly
 		use:selectTextOnFocus
 		use:blurOnEscape
-		bind:value={url}
-	/><button on:click={copy}>{copyText}</button>
+		value={url}
+	/><button on:click={copyURL}>{urlCopyText}</button>
+	<label>
+		Discord timestamp code
+		<input
+			type="text"
+			id="share-timestamp"
+			readonly
+			use:selectTextOnFocus
+			use:blurOnEscape
+			value={`<t:${getUNIX(timestamp)}>`}
+		/><button on:click={copyTimestamp}>{timestampCopyText}</button>
+	</label>
 </fieldset>
 
 <style>
@@ -45,9 +73,13 @@
 		width: 380px;
 	}
 
+	#share-timestamp {
+		width: 120px;
+	}
+
 	fieldset {
 		border: none;
-		margin: 1.8em auto 2em;
+		margin: 1.8em auto;
 		padding: 0;
 	}
 
@@ -64,6 +96,10 @@
 		-webkit-box-sizing: content-box;
 		box-sizing: content-box;
 		line-height: 1.2em;
+	}
+
+	label {
+		margin-top: 1em;
 	}
 
 	@media (max-width: 749px) {

@@ -98,11 +98,18 @@
 
 	{#if timestamp}
 		<Output {timestamp} />
-		<Share bind:url bind:shareStamp bind:shortenSnowflake {dynamicMode} />
+		<Share
+			bind:url
+			bind:shareStamp
+			bind:shortenSnowflake
+			{timestamp}
+			{dynamicMode}
+		/>
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
+	<hr />
 	<Credits />
 </main>
 
@@ -145,6 +152,11 @@
 		top: 4px;
 		padding-top: 0.5em;
 		padding-left: 0.5em;
+	}
+
+	hr {
+		border-top: 1px solid #ccc;
+		width: 380px;
 	}
 
 	@media (min-width: 750px) {
