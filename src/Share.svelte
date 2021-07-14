@@ -56,7 +56,7 @@
 		value={url}
 	/><button on:click={copyURL}>{urlCopyText}</button>
 	<label>
-		Discord timestamp code
+		<span>Discord timestamp code</span>
 		<input
 			type="text"
 			id="share-timestamp"
@@ -108,6 +108,10 @@
 		}
 		#share-url {
 			width: 190px;
+		}
+		label span {
+			display: block;
+			margin-bottom: 0.4em;
 		}
 	}
 </style>
