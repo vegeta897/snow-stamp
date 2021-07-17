@@ -81,6 +81,10 @@
 		opacity: 0.85;
 	}
 
+	:global(body.dark-mode) section .label {
+		opacity: 0.6;
+	}
+
 	section time {
 		font-size: 1.8em;
 		color: #69eaff;
