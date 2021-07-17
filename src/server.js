@@ -16,10 +16,11 @@ const indexContent = fs.readFileSync(
 	path.resolve(__dirname, '../public', 'index.html')
 )
 
-app.get('/', ({ query }, res) => {
+app.get('/', (req, res) => {
+	const query = req.query
 	if (query.z || query.l) {
 		console.log(
-			`${new Date().toLocaleString()} - l=${query.l || ''} z=${
+			`${new Date().toLocaleString()} ${req.get('user-agent')} - l=${query.l || ''} z=${
 				query.z || ''
 			} s=${query.s || ''} f=${query.f || ''}`
 		)
