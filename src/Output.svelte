@@ -98,6 +98,10 @@
 		margin: 1em 0;
 	}
 
+	:global(body.dark-mode) section hr {
+		border: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
 	@media (max-width: 749px) {
 		section {
 			font-size: 1.4em;
