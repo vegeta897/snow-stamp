@@ -14,6 +14,7 @@
 	import Share from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
+	import Switch from './Switch.svelte'
 
 	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 
@@ -27,11 +28,18 @@
 
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
+	let darkMode = getLocalStorageBoolean('darkMode', true)
 
 	let locale, tz
 
 	$: updateSnowflake(snowflake)
 	$: dynamicMode && updateShareOptions(shareStamp, shortenSnowflake)
+
+	$: {
+		if (darkMode) window.document.body.classList.add('dark-mode')
+		else window.document.body.classList.remove('dark-mode')
+		localStorage.setItem('darkMode', darkMode)
+	}
 
 	// Validate snowflake and update timestamp or error
 	function updateSnowflake() {
@@ -79,6 +87,16 @@
 		<h2>❄️</h2>
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
+	<div id="dark-toggle">
+		<p style="margin-bottom: 0.2em; font-size: 1.1em; text-align: right">
+			Dark mode
+		</p>
+		<Switch
+			bind:checked={darkMode}
+			switchColorEnabled="#bbb"
+			bgColorEnabled="#444"
+		/>
+	</div>
 	<p style="margin-bottom: 0.5em;">
 		Paste in a Discord snowflake to get the timestamp
 	</p>
@@ -97,7 +115,7 @@
 	</div>
 
 	{#if timestamp}
-		<Output {timestamp} />
+		<Output {timestamp} {darkMode} />
 		<Share
 			bind:url
 			bind:shareStamp
@@ -119,6 +137,7 @@
 		padding: 1em 0;
 		max-width: 348px;
 		margin: 0 auto;
+		position: relative;
 	}
 
 	main h2 {
@@ -129,6 +148,16 @@
 	h1 {
 		color: #008dad;
 		font-size: 2em;
+	}
+
+	:global(body.dark-mode) h1 {
+		color: #69eaff;
+	}
+
+	#dark-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 
 	p {
@@ -155,8 +184,12 @@
 	}
 
 	hr {
-		border-top: 1px solid #ccc;
+		border: 1px solid #ccc;
 		width: 380px;
+	}
+
+	:global(body.dark-mode) hr {
+		border: 1px solid #333;
 	}
 
 	@media (min-width: 750px) {

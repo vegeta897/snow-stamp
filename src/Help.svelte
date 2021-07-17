@@ -29,6 +29,10 @@
 		font-weight: bold;
 	}
 
+	:global(body.dark-mode) summary {
+		color: #bbb;
+	}
+
 	summary:focus {
 		outline: none;
 	}

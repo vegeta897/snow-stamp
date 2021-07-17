@@ -25,12 +25,9 @@
 	</p>
 	<p>
 		<a class="github" href="https://github.com/vegeta897/snow-stamp"
-			><img
-				height="24px"
-				src={github}
-				alt="GitHub"
-				style="position: relative; margin-right: 2px; top: 5px; margin-top: -5px;"
-			/><span style="text-decoration: none">&nbsp;</span>GitHub</a
+			><img height="24px" src={github} alt="GitHub" style="" /><span
+				style="text-decoration: none">&nbsp;</span
+			>GitHub</a
 		>
 	</p>
 </div>
@@ -42,15 +39,34 @@
 		font-size: 1em;
 		margin: 1em auto 0;
 	}
+	:global(body.dark-mode) .credits {
+		color: #bbb;
+	}
 
-	.credits code {
+	code {
 		font-family: 'Fira Code', monospace;
 		font-size: 0.9em;
 		padding: 0.2em 0.3em;
 		background: #f4f4f4;
 	}
 
-	.credits span {
+	:global(body.dark-mode) code {
+		color: #ccc;
+		background: #333;
+	}
+
+	span {
 		display: inline-block;
+	}
+
+	a.github img {
+		position: relative;
+		margin-right: 2px;
+		top: 5px;
+		margin-top: -5px;
+	}
+
+	:global(body.dark-mode) a.github img {
+		filter: invert();
 	}
 </style>

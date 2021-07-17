@@ -1,14 +1,19 @@
 <!-- Based on https://svelte.dev/repl/35d77f2ab11e4197a19ffd8e7c4ac74e?version=3.9.1 -->
 <script>
 	export let checked = false
-	export let enabledColor = '#aaa'
 	export let bgColor = '#999'
+	export let bgColorEnabled = '#aaa'
+	export let switchColor = '#fff'
+	export let switchColorEnabled = '#fff'
 	export let small = false
 </script>
 
 <label
 	class="switch{small ? ' small' : ''}"
-	style="--enabled-color:{enabledColor};--bg-color:{bgColor}"
+	style="--bg-color-enabled:{bgColorEnabled};
+	--bg-color:{bgColor};
+	--switch-color:{switchColor};
+	--switch-color-enabled:{switchColorEnabled}"
 >
 	<input type="checkbox" bind:checked />
 	<span class="slider" />
@@ -58,7 +63,8 @@
 		width: 26px;
 		left: 4px;
 		bottom: 4px;
-		background-color: white;
+		/*noinspection CssUnresolvedCustomProperty*/
+		background-color: var(--switch-color);
 		-webkit-transition: 0.2s;
 		transition: 0.2s;
 		border-radius: 50%;
@@ -72,14 +78,16 @@
 	}
 
 	input:checked + .slider {
-		background-color: var(--enabled-color);
+		background-color: var(--bg-color-enabled);
 	}
 
 	input:checked + .slider {
-		box-shadow: 0 0 1px var(--enabled-color);
+		box-shadow: 0 0 1px var(--bg-color-enabled);
 	}
 
 	input:checked + .slider:before {
+		/*noinspection CssUnresolvedCustomProperty*/
+		background-color: var(--switch-color-enabled);
 		-webkit-transform: translateX(26px);
 		-ms-transform: translateX(26px);
 		transform: translateX(26px);

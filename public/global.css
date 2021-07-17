@@ -13,8 +13,17 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Lato, sans-serif;
 }
 
+body.dark-mode {
+	color: #eee;
+	background: #222;
+}
+
 a {
 	color: #007584;
+}
+
+body.dark-mode a {
+	color: #69eaff;
 }
 
 ::selection {
@@ -22,6 +31,13 @@ a {
 }
 ::-moz-selection {
 	background: #69eaff;
+}
+
+body.dark-mode ::selection {
+	background: #444;
+}
+body.dark-mode ::-moz-selection {
+	background: #444;
 }
 
 label {
@@ -41,13 +57,29 @@ textarea {
 	border: 1px solid #ccc;
 	border-radius: 2px;
 }
+body.dark-mode input,
+button,
+select,
+textarea {
+	background-color: #181818;
+	color: #fff;
+	border: 1px solid #666;
+}
 
 input::placeholder {
 	color: rgba(51, 51, 51, 0.4);
 }
 
+body.dark-mode input::placeholder {
+	color: rgba(200, 200, 200, 0.4);
+}
+
 input:focus {
 	outline: 2px solid #007584;
+}
+
+body.dark-mode input:focus {
+	outline: 2px solid #69eaff;
 }
 
 input:disabled {
@@ -60,12 +92,21 @@ button {
 	outline: none;
 }
 
+body.dark-mode button {
+	color: #eee;
+	background-color: #444;
+}
+
 button:disabled {
 	color: #999;
 }
 
 button:not(:disabled):active {
 	background-color: #ddd;
+}
+
+body.dark-mode button:not(:disabled):active {
+	background-color: #333;
 }
 
 button:focus {

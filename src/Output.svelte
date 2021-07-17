@@ -4,6 +4,8 @@
 	import Switch from './Switch.svelte'
 	import { getLocalStorageBoolean } from './util'
 
+	export let darkMode
+
 	let showUnixMilliseconds = getLocalStorageBoolean(
 		'showUnixMilliseconds',
 		false
@@ -11,9 +13,7 @@
 	let unixUnits
 	$: unixUnits = showUnixMilliseconds ? 'milliseconds' : 'seconds'
 
-	$: (() => {
-		localStorage.setItem('showUnixMilliseconds', showUnixMilliseconds)
-	})(showUnixMilliseconds)
+	$: localStorage.setItem('showUnixMilliseconds', showUnixMilliseconds)
 
 	export let timestamp
 </script>
@@ -34,7 +34,14 @@
 		<div>
 			<MediaQuery query="(max-width: 749px)" let:matches>
 				<p class="label" style="margin-bottom: {matches ? 5 : 9}px;">Units</p>
-				<Switch bind:checked={showUnixMilliseconds} small={matches} />
+				<Switch
+					bind:checked={showUnixMilliseconds}
+					small={matches}
+					bgColor={darkMode ? '#444' : '#999'}
+					bgColorEnabled={darkMode ? '#444' : '#999'}
+					switchColor={darkMode ? '#bbb' : '#fff'}
+					switchColorEnabled={darkMode ? '#bbb' : '#fff'}
+				/>
 			</MediaQuery>
 		</div>
 	</div>
@@ -49,9 +56,13 @@
 		text-align: left;
 		color: #eee;
 		font-size: 1.8em;
-		background: rgba(0, 0, 0, 0.75);
+		background: #404040;
 		padding: 1em 1.5em;
 		white-space: nowrap;
+	}
+
+	:global(body.dark-mode) section {
+		background: #181818;
 	}
 
 	section ::selection {
@@ -70,6 +81,10 @@
 		opacity: 0.85;
 	}
 
+	:global(body.dark-mode) section .label {
+		opacity: 0.6;
+	}
+
 	section time {
 		font-size: 1.8em;
 		color: #69eaff;
@@ -85,6 +100,10 @@
 	section hr {
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		margin: 1em 0;
+	}
+
+	:global(body.dark-mode) section hr {
+		border: 1px solid rgba(255, 255, 255, 0.06);
 	}
 
 	@media (max-width: 749px) {
