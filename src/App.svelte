@@ -24,22 +24,22 @@
 		error,
 		url
 
-	let darkMode = true
-
-	$: {
-		if (darkMode) window.document.body.classList.add('dark-mode')
-		else window.document.body.classList.remove('dark-mode')
-	}
-
 	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
 
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
+	let darkMode = getLocalStorageBoolean('darkMode', true)
 
 	let locale, tz
 
 	$: updateSnowflake(snowflake)
 	$: dynamicMode && updateShareOptions(shareStamp, shortenSnowflake)
+
+	$: {
+		if (darkMode) window.document.body.classList.add('dark-mode')
+		else window.document.body.classList.remove('dark-mode')
+		localStorage.setItem('darkMode', darkMode)
+	}
 
 	// Validate snowflake and update timestamp or error
 	function updateSnowflake() {
@@ -91,7 +91,11 @@
 		<p style="margin-bottom: 0.2em; font-size: 1.1em; text-align: right">
 			Dark mode
 		</p>
-		<Switch bind:checked={darkMode} switchColorEnabled="#69eaff" />
+		<Switch
+			bind:checked={darkMode}
+			switchColorEnabled="#bbb"
+			bgColorEnabled="#444"
+		/>
 	</div>
 	<p style="margin-bottom: 0.5em;">
 		Paste in a Discord snowflake to get the timestamp
@@ -146,6 +150,10 @@
 		font-size: 2em;
 	}
 
+	:global(body.dark-mode) h1 {
+		color: #69eaff;
+	}
+
 	#dark-toggle {
 		position: absolute;
 		top: 0;
@@ -176,8 +184,12 @@
 	}
 
 	hr {
-		border-top: 1px solid #ccc;
+		border: 1px solid #ccc;
 		width: 380px;
+	}
+
+	:global(body.dark-mode) hr {
+		border: 1px solid #333;
 	}
 
 	@media (min-width: 750px) {
