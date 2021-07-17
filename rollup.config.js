@@ -8,8 +8,40 @@ import image from '@rollup/plugin-image'
 import { config } from 'dotenv'
 import replace from '@rollup/plugin-replace'
 import { visualizer } from 'rollup-plugin-visualizer'
+import rimraf from 'rimraf'
+import posthtml from 'posthtml'
+import { hash } from 'posthtml-hash'
+import htmlnano from 'htmlnano'
+import copy from 'rollup-plugin-copy'
+import fs from 'fs'
 
-const production = !process.env.ROLLUP_WATCH
+// Based on https://github.com/metonym/svelte-rollup-template/
+
+const PROD = !process.env.ROLLUP_WATCH
+const OUT_DIR = 'build'
+
+function hashStatic() {
+	return {
+		name: 'hash-static',
+		buildStart() {
+			rimraf.sync(OUT_DIR)
+		},
+		writeBundle() {
+			posthtml([
+				// hashes `bundle.[hash].css` and `bundle.[hash].js`
+				hash({ path: OUT_DIR }),
+
+				// minifies `build/index.html`
+				// https://github.com/posthtml/htmlnano
+				htmlnano(),
+			])
+				.process(fs.readFileSync(`${OUT_DIR}/index.html`, 'utf-8'))
+				.then((result) =>
+					fs.writeFileSync(`${OUT_DIR}/index.html`, result.html)
+				)
+		},
+	}
+}
 
 function serve() {
 	let server
@@ -39,51 +71,34 @@ function serve() {
 export default {
 	input: 'src/main.js',
 	output: {
-		sourcemap: true,
+		sourcemap: !PROD,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js',
+		file: `${OUT_DIR}/bundle.[hash].js`,
 	},
 	plugins: [
+		copy({ targets: [{ src: 'public/*', dest: OUT_DIR }] }),
 		replace({
 			process: JSON.stringify({ env: { ...config().parsed } }),
 			preventAssignment: true,
 		}),
 		svelte({
 			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production,
+				dev: !PROD,
 			},
 		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
-		css({ output: 'bundle.css' }),
+		css({ output: 'bundle.[hash].css' }),
 		image(),
-
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
 			dedupe: ['svelte'],
 		}),
 		commonjs(),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser(),
-
-		production && visualizer(),
+		!PROD && serve({ contentBase: [OUT_DIR] }),
+		!PROD && livereload({ watch: OUT_DIR }),
+		PROD && terser(),
+		PROD && hashStatic(),
+		PROD && visualizer(),
 	],
 	watch: {
 		clearScreen: false,

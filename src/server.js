@@ -12,17 +12,25 @@ const app = express()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const indexContent = fs.readFileSync(
-	path.resolve(__dirname, '../public', 'index.html')
-)
+let indexContent
+try {
+	indexContent = fs.readFileSync(
+		path.resolve(__dirname, '../build', 'index.html')
+	)
+} catch (e) {
+	console.error(
+		'Failed to load "build/index.html" - make sure you run "npm run build" first'
+	)
+	process.exit(1)
+}
 
 app.get('/', (req, res) => {
 	const query = req.query
 	if (query.z || query.l) {
 		console.log(
-			`${new Date().toLocaleString()} ${req.get('user-agent')} - l=${query.l || ''} z=${
-				query.z || ''
-			} s=${query.s || ''} f=${query.f || ''}`
+			`${new Date().toLocaleString()} ${req.get('user-agent')} - l=${
+				query.l || ''
+			} z=${query.z || ''} s=${query.s || ''} f=${query.f || ''}`
 		)
 	}
 	const parsedIndex = nodeHTMLParser.parse(indexContent)
@@ -47,7 +55,7 @@ app.get('/', (req, res) => {
 	res.send(parsedIndex.toString())
 })
 
-app.use('/', express.static(path.resolve(__dirname, `../public`)))
+app.use('/', express.static(path.resolve(__dirname, `../build`)))
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Server started on port ${port}`))

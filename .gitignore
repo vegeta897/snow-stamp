@@ -7,7 +7,7 @@
 /coverage
 
 # production
-/public/build/
+/build/
 stats.html
 
 # misc

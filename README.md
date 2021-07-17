@@ -29,7 +29,7 @@ For either deployment, you must first build:
 
 `npm run build`
 
-To deploy a static site, copy or host the contents of `/public`
+To deploy a static site, copy or host the contents of `/build`
 
 Otherwise, start the server:
 
