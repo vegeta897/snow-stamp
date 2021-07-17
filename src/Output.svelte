@@ -4,6 +4,8 @@
 	import Switch from './Switch.svelte'
 	import { getLocalStorageBoolean } from './util'
 
+	export let darkMode
+
 	let showUnixMilliseconds = getLocalStorageBoolean(
 		'showUnixMilliseconds',
 		false
@@ -32,7 +34,14 @@
 		<div>
 			<MediaQuery query="(max-width: 749px)" let:matches>
 				<p class="label" style="margin-bottom: {matches ? 5 : 9}px;">Units</p>
-				<Switch bind:checked={showUnixMilliseconds} small={matches} />
+				<Switch
+					bind:checked={showUnixMilliseconds}
+					small={matches}
+					bgColor={darkMode ? '#444' : '#999'}
+					bgColorEnabled={darkMode ? '#444' : '#999'}
+					switchColor={darkMode ? '#bbb' : '#fff'}
+					switchColorEnabled={darkMode ? '#bbb' : '#fff'}
+				/>
 			</MediaQuery>
 		</div>
 	</div>
@@ -50,6 +59,10 @@
 		background: #404040;
 		padding: 1em 1.5em;
 		white-space: nowrap;
+	}
+
+	:global(body.dark-mode) section {
+		background: #181818;
 	}
 
 	section ::selection {

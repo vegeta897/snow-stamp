@@ -115,7 +115,7 @@
 	</div>
 
 	{#if timestamp}
-		<Output {timestamp} />
+		<Output {timestamp} {darkMode} />
 		<Share
 			bind:url
 			bind:shareStamp
