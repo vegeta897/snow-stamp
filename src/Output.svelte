@@ -11,9 +11,7 @@
 	let unixUnits
 	$: unixUnits = showUnixMilliseconds ? 'milliseconds' : 'seconds'
 
-	$: (() => {
-		localStorage.setItem('showUnixMilliseconds', showUnixMilliseconds)
-	})(showUnixMilliseconds)
+	$: localStorage.setItem('showUnixMilliseconds', showUnixMilliseconds)
 
 	export let timestamp
 </script>
@@ -49,7 +47,7 @@
 		text-align: left;
 		color: #eee;
 		font-size: 1.8em;
-		background: rgba(0, 0, 0, 0.75);
+		background: #404040;
 		padding: 1em 1.5em;
 		white-space: nowrap;
 	}

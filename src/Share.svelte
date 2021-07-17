@@ -33,8 +33,8 @@
 		urlCopyText = COPY
 	}
 
-	$: (() => (urlCopyText = COPY))(url)
-	$: (() => (timestampCopyText = COPY))(timestamp)
+	$: if (url) urlCopyText = COPY
+	$: if (timestamp) timestampCopyText = COPY
 </script>
 
 <fieldset>
