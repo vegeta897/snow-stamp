@@ -14,6 +14,7 @@
 	import Share from './Share.svelte'
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
+	import Switch from './Switch.svelte'
 
 	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 
@@ -22,6 +23,13 @@
 		timestamp,
 		error,
 		url
+
+	let darkMode = true
+
+	$: {
+		if (darkMode) window.document.body.classList.add('dark-mode')
+		else window.document.body.classList.remove('dark-mode')
+	}
 
 	let epoch = +process.env.SNOWFLAKE_EPOCH || undefined
 
@@ -79,6 +87,12 @@
 		<h2>❄️</h2>
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
+	<div id="dark-toggle">
+		<p style="margin-bottom: 0.2em; font-size: 1.1em; text-align: right">
+			Dark mode
+		</p>
+		<Switch bind:checked={darkMode} switchColorEnabled="#69eaff" />
+	</div>
 	<p style="margin-bottom: 0.5em;">
 		Paste in a Discord snowflake to get the timestamp
 	</p>
@@ -119,6 +133,7 @@
 		padding: 1em 0;
 		max-width: 348px;
 		margin: 0 auto;
+		position: relative;
 	}
 
 	main h2 {
@@ -129,6 +144,12 @@
 	h1 {
 		color: #008dad;
 		font-size: 2em;
+	}
+
+	#dark-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 
 	p {
