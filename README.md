@@ -43,4 +43,4 @@ You can use a custom epoch instead of [Discord's](https://discord.com/developers
 
 ---
 
-_Made with svelte_
+[![MadeWithSvelte.com shield](https://madewithsvelte.com/storage/repo-shields/3155-shield.svg)](https://madewithsvelte.com/p/snow-stamp/shield-link)
