@@ -79,7 +79,7 @@ export default {
 	plugins: [
 		copy({ targets: [{ src: 'public/*', dest: OUT_DIR }] }),
 		replace({
-			process: JSON.stringify({ env: { ...config().parsed } }),
+			'process.env': JSON.stringify(config()),
 			preventAssignment: true,
 		}),
 		svelte({
