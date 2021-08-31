@@ -15,6 +15,8 @@
 	import Credits from './Credits.svelte'
 	import { validateSnowflake } from './convert'
 	import Switch from './Switch.svelte'
+	import IconMoon from './IconMoon.svelte'
+	import IconSun from './IconSun.svelte'
 
 	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 	const { SNOWFLAKE_EPOCH } = process.env
@@ -88,9 +90,13 @@
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
 	<div id="dark-toggle">
-		<p style="margin-bottom: 0.2em; font-size: 1.1em; text-align: right">
-			Dark mode
-		</p>
+		<div style="display:inline-block;position:relative; top:13px; right:2px;">
+			{#if darkMode}
+				<IconMoon />
+			{:else}
+				<IconSun />
+			{/if}
+		</div>
 		<Switch
 			bind:checked={darkMode}
 			switchColorEnabled="#bbb"
