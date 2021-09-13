@@ -26,7 +26,7 @@
 		"svelte": "^3.42.4"
 	},
 	"dependencies": {
-		"dayjs": "^1.10.6",
+		"dayjs": "^1.10.7",
 		"express": "^4.17.1",
 		"node-html-parser": "^4.1.4",
 		"querystringify": "^2.2.0",
