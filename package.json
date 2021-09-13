@@ -13,7 +13,7 @@
 		"jest": "^27.1.0",
 		"posthtml": "^0.16.5",
 		"posthtml-hash": "^1.2.2",
-		"prettier": "^2.3.2",
+		"prettier": "^2.4.0",
 		"prettier-plugin-svelte": "^2.4.0",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.56.3",
