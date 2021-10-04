@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-commonjs": "^21.0.0",
 		"@rollup/plugin-image": "^2.1.1",
 		"@rollup/plugin-node-resolve": "^13.0.4",
 		"@rollup/plugin-replace": "^3.0.0",
