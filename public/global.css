@@ -116,3 +116,24 @@ button:focus {
 small {
 	font-size: 0.8em;
 }
+
+@keyframes snowing {
+	0% {
+		transform: translate(var(--left-start), 0) rotate(var(--angle-start));
+	}
+	100% {
+		transform: translate(var(--left-end), 110vh) rotate(var(--angle-end));
+	}
+}
+
+* {
+	transition-property: color, background-color;
+	transition-duration: 0.15s;
+	transition-delay: 0s;
+	transition-timing-function: ease-out;
+}
+
+.preload,
+.preload * {
+	transition-property: none !important;
+}

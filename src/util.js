@@ -43,6 +43,13 @@ export function decodeSnowflake(encodedSnowflake) {
 	return chunks.map((chunk) => parseInt(chunk, 36).toString().slice(1)).join('')
 }
 
+export function isSnowy(input) {
+	for (let snowText of ['❄', '❆', '❅', '🌨', '🌨️', '⛄', '☃', 'snow']) {
+		if (input.toLowerCase().includes(snowText)) return true
+	}
+	return false
+}
+
 // https://svelte.dev/repl/b4db6313dfeb4b50871a9b43398a6952?version=3.16.7
 /** Selects the text inside a text node when the node is focused */
 export function selectTextOnFocus(node) {

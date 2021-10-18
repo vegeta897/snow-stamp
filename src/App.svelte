@@ -8,6 +8,7 @@
 		detectTimeZone,
 		encodeSnowflake,
 		decodeSnowflake,
+		isSnowy,
 	} from './util.js'
 	import Help from './Help.svelte'
 	import Output from './Output.svelte'
@@ -17,6 +18,8 @@
 	import Switch from './Switch.svelte'
 	import IconMoon from './IconMoon.svelte'
 	import IconSun from './IconSun.svelte'
+	import LetItSnow from './LetItSnow.svelte'
+	import { onMount } from 'svelte'
 
 	const dynamicMode = window.__SNOWSTAMP_DYNAMIC__
 	const { SNOWFLAKE_EPOCH } = process.env
@@ -26,7 +29,8 @@
 	let snowflake = queries.s || (queries.f && decodeSnowflake(queries.f)) || '',
 		timestamp,
 		error,
-		url
+		url,
+		letItSnow
 
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
@@ -43,16 +47,25 @@
 		localStorage.setItem('darkMode', darkMode)
 	}
 
+	onMount(() =>
+		setTimeout(() => window.document.body.classList.remove('preload'))
+	)
+
 	// Validate snowflake and update timestamp or error
 	function updateSnowflake() {
 		timestamp = null
 		error = null
+		letItSnow = false
 		if (!snowflake.trim()) return
 		try {
 			timestamp = validateSnowflake(snowflake, EPOCH)
 			updateURL()
 		} catch (e) {
-			error = e
+			if (isSnowy(snowflake)) {
+				letItSnow = true
+			} else {
+				error = e
+			}
 		}
 	}
 
@@ -132,6 +145,9 @@
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
+	{/if}
+	{#if letItSnow}
+		<LetItSnow />
 	{/if}
 	<hr />
 	<Credits />
