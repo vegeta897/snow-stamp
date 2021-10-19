@@ -1,39 +1,41 @@
 <script>
-	import { onDestroy, onMount } from 'svelte'
+	export let letItSnow
+	const container = document.getElementsByClassName('snow-container')[0]
 
-	const existingContainer = document.getElementsByClassName('snow-container')[0]
-	const container = existingContainer || document.createElement('div')
-	container.classList.add('snow-container')
-	let timeout
-	function addSnowflake() {
+	export function addSnowflake(repeat) {
 		const flake = document.createElement('i')
 		container.appendChild(flake)
+		const flakeOpacity = 0.5 + Math.random() * 0.5
+		flake.style.opacity = flakeOpacity
+		flake.style.fontSize = Math.floor(16 + Math.random() * 24) + 'px'
 		const flakeLeft = Math.floor(Math.random() * 100)
 		const flakeDrift = Math.floor(-10 + Math.random() * 20)
-		flake.style.setProperty('--left-start', `${flakeLeft}vw`)
-		flake.style.setProperty('--left-end', `${flakeLeft + flakeDrift}vw`)
 		const flakeOrientation = Math.floor(Math.random() * 360)
-		let flakeSpin = Math.floor(30 + Math.random() * 180)
+		let flakeSpin = Math.floor(50 + Math.random() * 180)
 		if (Math.random() > 0.5) flakeSpin *= -1
-		flake.style.setProperty('--angle-start', `${flakeOrientation}deg`)
-		flake.style.setProperty('--angle-end', `${flakeOrientation + flakeSpin}deg`)
-		const flakeDuration = Math.floor(10 + Math.random() * 10)
-		flake.style.animation = `snowing ${flakeDuration}s linear 0s 1 normal forwards`
-		flake.style.opacity = 0.5 + Math.random() * 0.5
-		flake.style.fontSize = Math.floor(16 + Math.random() * 24) + 'px'
-		setTimeout(() => {
+		const animFrames = [
+			{
+				transform: `translate(${flakeLeft}vw, 0) rotate(${flakeOrientation}deg)`,
+			},
+			{
+				transform: `translate(${flakeLeft + flakeDrift}vw, 110vh) rotate(${
+					flakeOrientation + flakeSpin
+				}deg)`,
+				opacity: flakeOpacity / 2,
+			},
+		]
+		const animOptions = { duration: Math.floor(10 + Math.random() * 10) * 1000 }
+		flake.animate(animFrames, animOptions).finished.then(() => {
 			flake.remove()
-		}, flakeDuration * 1000)
-		timeout = setTimeout(addSnowflake, 200 + Math.random() * 200)
+		})
+		if (letItSnow && repeat)
+			setTimeout(() => addSnowflake(true), 200 + Math.random() * 200)
 	}
-	onMount(() => {
-		if (!existingContainer) document.body.appendChild(container)
-		addSnowflake()
-	})
-	onDestroy(() => clearTimeout(timeout))
+
+	$: if (letItSnow) addSnowflake(true)
 </script>
 
-<p class="let-it-snow">❄️ <em>Let it snow</em></p>
+{#if letItSnow}<p class="let-it-snow">❄️ <em>Let it snow</em></p>{/if}
 
 <style>
 	p.let-it-snow {
@@ -53,6 +55,7 @@
 		height: 100%;
 		overflow: hidden;
 		pointer-events: none;
+		z-index: 9999;
 	}
 
 	:global(i) {

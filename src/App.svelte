@@ -29,12 +29,13 @@
 	let snowflake = queries.s || (queries.f && decodeSnowflake(queries.f)) || '',
 		timestamp,
 		error,
-		url,
-		letItSnow
+		url
 
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
 	let darkMode = getLocalStorageBoolean('darkMode', true)
+
+	let letItSnow, snowComponent
 
 	let locale, tz
 
@@ -99,7 +100,7 @@
 
 <main>
 	<hgroup>
-		<h2>❄️</h2>
+		<h2 on:click={() => snowComponent.addSnowflake()}>❄️</h2>
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
 	<div id="dark-toggle">
@@ -146,9 +147,7 @@
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
-	{#if letItSnow}
-		<LetItSnow />
-	{/if}
+	<LetItSnow bind:this={snowComponent} {letItSnow} />
 	<hr />
 	<Credits />
 </main>
@@ -165,6 +164,9 @@
 	main h2 {
 		font-size: 5em;
 		margin: 0;
+		user-select: none;
+		cursor: pointer;
+		display: inline-block;
 	}
 
 	h1 {
