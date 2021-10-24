@@ -1,6 +1,6 @@
 # Changelog
 
-_This is to show visitors what's new on the site, so it only covers user-facing changes_
+Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
 ## 2021-10-24
 
