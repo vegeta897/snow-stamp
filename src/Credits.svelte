@@ -25,9 +25,12 @@
 	</p>
 	<p>
 		<a class="github" href="https://github.com/vegeta897/snow-stamp"
-			><img height="24px" src={github} alt="GitHub" style="" /><span
+			><img height="24px" src={github} alt="GitHub" /><span
 				style="text-decoration: none">&nbsp;</span
 			>GitHub</a
+		>&nbsp; &mdash;&nbsp;
+		<a href="https://github.com/vegeta897/snow-stamp/blob/main/CHANGELOG.md"
+			>Changelog</a
 		>
 	</p>
 </div>
