@@ -1,4 +1,5 @@
 <script>
+	// TODO: Make this a directive?
 	export let letItSnow
 	const container = document.getElementsByClassName('snow-container')[0]
 
