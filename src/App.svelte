@@ -149,6 +149,17 @@
 	{/if}
 	<LetItSnow bind:this={snowComponent} {letItSnow} />
 	<hr />
+	<div class="survey">
+		<p>
+			<strong>Hey!</strong> 👋 <br />I want to hear from you!
+		</p>
+		<p>
+			Can you take a <a href="https://forms.gle/6QZgX1mZQNwZsaJP7"
+				>short survey</a
+			> about this site?
+		</p>
+	</div>
+	<hr />
 	<Credits />
 </main>
 
@@ -213,6 +224,11 @@
 		width: 380px;
 	}
 
+	.survey p {
+		color: #ccc;
+		margin-top: 16px;
+	}
+
 	:global(body.dark-mode) hr {
 		border: 1px solid #333;
 	}
@@ -234,6 +250,10 @@
 
 		hr {
 			width: 240px;
+		}
+
+		.survey p {
+			font-size: 1.1em;
 		}
 	}
 </style>

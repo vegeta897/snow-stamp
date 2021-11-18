@@ -18,7 +18,7 @@
 	<p>
 		<span>If you want to support my projects,</span>
 		<span
-			><a href="https://www.buymeacoffee.com/vegeta897" target="_blank"
+			><a href="https://www.buymeacoffee.com/vegeta897"
 				>buy me a coffee!<span style="text-decoration: none">&nbsp;💙</span></a
 			></span
 		>
