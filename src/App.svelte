@@ -163,6 +163,7 @@
 
 	main h2 {
 		font-size: 5em;
+		font-weight: 400;
 		margin: 0;
 		user-select: none;
 		cursor: pointer;
