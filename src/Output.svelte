@@ -37,10 +37,10 @@
 				<Switch
 					bind:checked={showUnixMilliseconds}
 					small={matches}
-					bgColor={darkMode ? '#444' : '#999'}
-					bgColorEnabled={darkMode ? '#444' : '#999'}
-					switchColor={darkMode ? '#bbb' : '#fff'}
-					switchColorEnabled={darkMode ? '#bbb' : '#fff'}
+					bgColor={darkMode ? '#3E474C' : '#999'}
+					bgColorEnabled={darkMode ? '#3E474C' : '#999'}
+					switchColor={darkMode ? '#a0a9ba' : '#fff'}
+					switchColorEnabled={darkMode ? '#a0a9ba' : '#fff'}
 				/>
 			</MediaQuery>
 		</div>
@@ -62,7 +62,7 @@
 	}
 
 	:global(body.dark-mode) section {
-		background: #181818;
+		background: #101314;
 	}
 
 	section ::selection {
@@ -82,7 +82,8 @@
 	}
 
 	:global(body.dark-mode) section .label {
-		opacity: 0.6;
+		opacity: 1;
+		color: #88939f;
 	}
 
 	section time {

@@ -30,7 +30,7 @@
 	}
 
 	:global(body.dark-mode) summary {
-		color: #bbb;
+		color: #99a9d2;
 	}
 
 	summary:focus {

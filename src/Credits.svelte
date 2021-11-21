@@ -43,7 +43,7 @@
 		margin: 1em auto 0;
 	}
 	:global(body.dark-mode) .credits {
-		color: #bbb;
+		color: #bec2cc;
 	}
 
 	code {
@@ -54,8 +54,8 @@
 	}
 
 	:global(body.dark-mode) code {
-		color: #ccc;
-		background: #333;
+		color: #bcc5d7;
+		background: #2f343a;
 	}
 
 	span {

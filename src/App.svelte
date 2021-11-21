@@ -113,11 +113,7 @@
 				<IconSun />
 			{/if}
 		</div>
-		<Switch
-			bind:checked={darkMode}
-			switchColorEnabled="#bbb"
-			bgColorEnabled="#444"
-		/>
+		<Switch bind:checked={darkMode} />
 	</div>
 	<p style="margin-bottom: 0.5em;">
 		Paste in a Discord snowflake to get the timestamp
@@ -175,8 +171,6 @@
 	}
 
 	main h2 {
-		font-size: 5em;
-		font-weight: 400;
 		margin: 0;
 		user-select: none;
 		cursor: pointer;
@@ -186,6 +180,8 @@
 	h1 {
 		color: #008dad;
 		font-size: 2em;
+		margin-top: 8px;
+		margin-bottom: 21px;
 	}
 
 	:global(body.dark-mode) h1 {
@@ -227,12 +223,16 @@
 	}
 
 	.survey p {
-		color: #ccc;
+		color: #444;
 		margin-top: 16px;
 	}
 
+	:global(body.dark-mode) .survey p {
+		color: #bec2cc;
+	}
+
 	:global(body.dark-mode) hr {
-		border: 1px solid #333;
+		border: 1px solid #343b3f;
 	}
 
 	@media (min-width: 750px) {

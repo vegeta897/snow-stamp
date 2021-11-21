@@ -2,9 +2,9 @@
 <script>
 	export let checked = false
 	export let bgColor = '#999'
-	export let bgColorEnabled = '#aaa'
+	export let bgColorEnabled = '#3E474C'
 	export let switchColor = '#fff'
-	export let switchColorEnabled = '#fff'
+	export let switchColorEnabled = '#a0a9ba'
 	export let small = false
 </script>
 

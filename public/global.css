@@ -14,8 +14,8 @@ body {
 }
 
 body.dark-mode {
-	color: #eee;
-	background: #222;
+	color: #dde1ee;
+	background: #1a1e23;
 }
 
 a {
@@ -61,9 +61,9 @@ body.dark-mode input,
 button,
 select,
 textarea {
-	background-color: #181818;
+	background-color: #101314;
 	color: #fff;
-	border: 1px solid #666;
+	border: 1px solid #5f6973;
 }
 
 input::placeholder {
@@ -94,7 +94,7 @@ button {
 
 body.dark-mode button {
 	color: #eee;
-	background-color: #444;
+	background-color: #3a4450;
 }
 
 button:disabled {
@@ -106,7 +106,7 @@ button:not(:disabled):active {
 }
 
 body.dark-mode button:not(:disabled):active {
-	background-color: #333;
+	background-color: #333946;
 }
 
 button:focus {

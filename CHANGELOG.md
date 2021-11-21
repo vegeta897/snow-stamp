@@ -2,6 +2,15 @@
 
 Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
+## 2021-11-21
+
+- ✨ Updated logo
+- 🖌️ Changed dark mode colors
+
+## 2021-11-18
+
+- 📋 Added link to [user survey](https://forms.gle/6QZgX1mZQNwZsaJP7)
+
 ## 2021-10-24
 
 - ✨ Added link to changelog file

@@ -95,7 +95,7 @@
 		-moz-box-sizing: content-box;
 		-webkit-box-sizing: content-box;
 		box-sizing: content-box;
-		line-height: 1.2em;
+		line-height: 1.3em;
 	}
 
 	label {
