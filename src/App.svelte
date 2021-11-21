@@ -101,7 +101,7 @@
 <main>
 	<hgroup>
 		<h2 on:click={() => snowComponent.addSnowflake()}>
-			<img src="logo-header.png" alt="Snow-Stamp" />
+			<img src="logo-header.png" height="113" alt="Snow-Stamp" />
 		</h2>
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
