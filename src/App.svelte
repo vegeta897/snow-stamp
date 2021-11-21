@@ -100,7 +100,9 @@
 
 <main>
 	<hgroup>
-		<h2 on:click={() => snowComponent.addSnowflake()}>❄️</h2>
+		<h2 on:click={() => snowComponent.addSnowflake()}>
+			<img src="logo-header.png" alt="Snow-Stamp" />
+		</h2>
 		<h1>Discord Snowflake to Timestamp Converter</h1>
 	</hgroup>
 	<div id="dark-toggle">
