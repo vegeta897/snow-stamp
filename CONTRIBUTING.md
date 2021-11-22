@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing! 💙
 
-None of the below points are requirements, just some points that may make things go smoother.
+None of the below is required, just some points that may make things go smoother.
 
 If you have any questions, add me on Discord `vegeta897#7777`
 
