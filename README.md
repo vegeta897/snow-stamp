@@ -6,7 +6,7 @@ So I made one.
 
 🔗 https://y.at/❄️⚙️⏰👏
 
-👩‍💻 If you're a developer looking for the conversion code, check out [convert.js](src/convert.js)
+👩‍💻 If you're a developer looking for the conversion code, check out [src/convert.js](src/convert.js)
 
 ## Contribute
 
