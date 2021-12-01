@@ -14,7 +14,7 @@
 		"posthtml": "^0.16.5",
 		"posthtml-hash": "^1.2.2",
 		"prettier": "^2.4.1",
-		"prettier-plugin-svelte": "^2.4.0",
+		"prettier-plugin-svelte": "^2.5.0",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.58.0",
 		"rollup-plugin-copy": "^3.4.0",
