@@ -2,6 +2,11 @@
 
 Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
+## 2021-12-03
+
+- 🔍 Added Snow-Stamp search support in address bar
+  - <details><summary>Show me!</summary>![Searching Snow-Stamp in address bar](assets/snow-search.gif?raw=true)</details>
+
 ## 2021-11-21
 
 - ✨ Updated logo
