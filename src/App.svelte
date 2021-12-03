@@ -134,6 +134,7 @@
 
 	{#if timestamp}
 		<Output {timestamp} {darkMode} />
+		<!-- TODO: Make this a button within the output box -->
 		<Share
 			bind:url
 			bind:shareStamp
