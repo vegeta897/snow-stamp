@@ -4,8 +4,7 @@ Here are the latest changes to the site. View the [commit log](https://github.co
 
 ## 2021-12-03
 
-- 🔍 Added Snow-Stamp search support in address bar
-  - <details><summary>Show me!</summary>![Searching Snow-Stamp in address bar](assets/snow-search.gif?raw=true)</details>
+- 🔍 Added Snow-Stamp search support in address bar <details><summary>Show me!</summary>![Searching Snow-Stamp in address bar](assets/snow-search.gif?raw=true)</details>
 
 ## 2021-11-21
 
