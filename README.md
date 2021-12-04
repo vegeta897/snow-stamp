@@ -4,7 +4,7 @@ I couldn't find a page anywhere that let you paste in a Discord snowflake to get
 
 So I made one.
 
-🔗 https://y.at/❄️⚙️⏰👏
+🔗 https://snowsta.mp
 
 👩‍💻 If you're a developer looking for the conversion code, check out [src/convert.js](src/convert.js)
 
