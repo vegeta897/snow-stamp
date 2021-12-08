@@ -150,13 +150,12 @@
 	<hr />
 	<div class="survey">
 		<p>
-			<strong>Hey!</strong> 👋 <br />I want to hear from you!
+			📢 The <a
+				href="https://github.com/vegeta897/snow-stamp/blob/main/assets/survey-2021-12-07.md"
+				>survey results</a
+			> are in!
 		</p>
-		<p>
-			Can you take a <a href="https://forms.gle/6QZgX1mZQNwZsaJP7"
-				>short survey</a
-			> about this site?
-		</p>
+		<p>Thank you to all who responded!</p>
 	</div>
 	<hr />
 	<Credits />
