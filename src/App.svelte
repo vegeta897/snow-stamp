@@ -148,16 +148,6 @@
 	{/if}
 	<LetItSnow bind:this={snowComponent} {letItSnow} />
 	<hr />
-	<div class="survey">
-		<p>
-			📢 The <a
-				href="https://github.com/vegeta897/snow-stamp/blob/main/assets/survey-2021-12-07.md"
-				>survey results</a
-			> are in!
-		</p>
-		<p>Thank you to all who responded!</p>
-	</div>
-	<hr />
 	<Credits />
 </main>
 
@@ -222,15 +212,6 @@
 		width: 380px;
 	}
 
-	.survey p {
-		color: #444;
-		margin-top: 16px;
-	}
-
-	:global(body.dark-mode) .survey p {
-		color: #bec2cc;
-	}
-
 	:global(body.dark-mode) hr {
 		border: 1px solid #343b3f;
 	}
@@ -252,10 +233,6 @@
 
 		hr {
 			width: 240px;
-		}
-
-		.survey p {
-			font-size: 1.1em;
 		}
 	}
 </style>
