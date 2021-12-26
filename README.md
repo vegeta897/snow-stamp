@@ -10,7 +10,7 @@ So I made one.
 
 ## Contribute
 
-Pull requests and issues are welcome!
+[Pull requests and issues](CONTRIBUTING.md) are welcome! Check the [help wanted](https://github.com/vegeta897/snow-stamp/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) tag.
 
 - Add me on Discord `vegeta897#7777`
 - [Buy me a coffee](https://www.buymeacoffee.com/vegeta897)

@@ -16,3 +16,7 @@ If you have any questions, add me on Discord `vegeta897#7777`
 - 💡 You may want to create an issue or add me on Discord to discuss your addition/change before you work on it
 - 💅 Use `npm run format` to automatically match your code style to the repo
 - ⚙ I currently don't use a dev branch, so go ahead and target main
+
+## Help wanted
+
+Issues with [this tag](https://github.com/vegeta897/snow-stamp/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) are ones I'd super appreciate you contributing to, or even just hearing your advice!
