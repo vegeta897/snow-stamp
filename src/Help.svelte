@@ -1,8 +1,11 @@
 <details>
 	<summary>What is a snowflake?</summary>
 	<p>
-		A Snowflake is essentially a unique ID for a resource which contains a
-		timestamp.
+		A <a
+			href="https://discord.com/developers/docs/reference#snowflakes"
+			rel="external"
+			target="_blank">Snowflake</a
+		> is a unique ID for a resource which contains a timestamp.
 	</p>
 	<p>
 		You can copy the snowflake from a message, user, channel, etc by right
