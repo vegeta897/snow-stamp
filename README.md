@@ -13,7 +13,7 @@ So I made one.
 [Pull requests and issues](CONTRIBUTING.md) are welcome! Check the [help wanted](https://github.com/vegeta897/snow-stamp/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) tag.
 
 - Add me on Discord `vegeta897#7777`
-- [Sponsor me on GitHub](https://github.com/sponsors/vegeta897)
+- [Sponsor me on GitHub](https://github.com/sponsors/vegeta897) ([details](#sponsors))
 - [Buy me a coffee](https://www.buymeacoffee.com/vegeta897)
 
 ## Develop
@@ -44,7 +44,7 @@ You can use a custom epoch instead of [Discord's](https://discord.com/developers
 
 ## Sponsors
 
-_Nobody yet!_ You can [sponsor me on GitHub](https://github.com/sponsors/vegeta897) to have your name added here, or on snowsta.mp itself!
+You can [sponsor me on GitHub](https://github.com/sponsors/vegeta897) to have your name added here, or on [snowsta.mp](https://snowsta.mp) itself!
 
 ---
 

@@ -16,14 +16,6 @@
 		>
 	</p>
 	<p>
-		<span>If you want to support my projects,</span>
-		<span
-			><a href="https://www.buymeacoffee.com/vegeta897"
-				>buy me a coffee!<span style="text-decoration: none">&nbsp;💙</span></a
-			></span
-		>
-	</p>
-	<p>
 		<a class="github" href="https://github.com/vegeta897/snow-stamp"
 			><img height="24px" src={github} alt="GitHub" /><span
 				style="text-decoration: none">&nbsp;</span
@@ -32,6 +24,11 @@
 		<a href="https://github.com/vegeta897/snow-stamp/blob/main/CHANGELOG.md"
 			>Changelog</a
 		>
+	</p>
+	<p>
+		<a href="https://github.com/sponsors/vegeta897"
+			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
+		> to get your name here!
 	</p>
 </div>
 
