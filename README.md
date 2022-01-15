@@ -44,6 +44,8 @@ You can use a custom epoch instead of [Discord's](https://discord.com/developers
 
 ## Sponsors
 
+- [Solixity](https://github.com/Solixity)
+
 You can [sponsor me on GitHub](https://github.com/sponsors/vegeta897) to have your name added here, or on [snowsta.mp](https://snowsta.mp) itself!
 
 ---
