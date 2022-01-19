@@ -1,6 +1,6 @@
 // Converts a snowflake ID string into a JS Date object using the provided epoch (in ms), or Discord's epoch if not provided
 export function convertSnowflakeToDate(snowflake, epoch = DISCORD_EPOCH) {
-	return new Date(snowflake / 4194304 + epoch)
+	return new Date(Number(BigInt(snowflake) >> 22n) + epoch)
 }
 
 export const DISCORD_EPOCH = 1420070400000
