@@ -4,7 +4,7 @@ export function formatLocale(date) {
 
 export function getUNIX(date, useMS) {
 	let unix = date.getTime()
-	if (!useMS) unix = Number((BigInt(unix) / 1000n) | 0n)
+	if (!useMS) unix = (unix / 1000) | 0
 	return unix
 }
 
