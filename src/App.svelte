@@ -31,6 +31,9 @@
 		error,
 		url
 
+	let snowflakeList
+	$: snowflakeList = [snowflake]
+
 	let shareStamp = getLocalStorageBoolean('shareStamp', true)
 	let shortenSnowflake = getLocalStorageBoolean('shortenSnowflake', true)
 	let darkMode = getLocalStorageBoolean('darkMode', true)
@@ -119,18 +122,20 @@
 		Paste in a Discord snowflake to get the timestamp
 	</p>
 	<Help />
-	<div
-		style="position: relative; display: inline-flex; margin-bottom: 2em; width: 100%;"
-	>
-		<div class="input-icon">❄</div>
-		<input
-			type="text"
-			bind:value={snowflake}
-			use:selectTextOnFocus
-			use:blurOnEscape
-			placeholder="e.g. 86913608335773696"
-		/>
-	</div>
+	{#each snowflakeList as flake}
+		<div
+			style="position: relative; display: inline-flex; margin-bottom: 2em; width: 100%;"
+		>
+			<div class="input-icon">❄</div>
+			<input
+				type="text"
+				bind:value={flake}
+				use:selectTextOnFocus
+				use:blurOnEscape
+				placeholder="e.g. 86913608335773696"
+			/>
+		</div>
+	{/each}
 
 	{#if timestamp}
 		<Output {timestamp} {darkMode} />
