@@ -2,7 +2,7 @@
 
 Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
-## 2022-02-07
+## 2022-02-08
 
 - 📝 Add clearer instructions in the help section
 
