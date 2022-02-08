@@ -4,6 +4,10 @@ Here are the latest changes to the site. View the [commit log](https://github.co
 
 ## 2022-02-07
 
+- 📝 Add clearer instructions in the help section
+
+## 2022-02-07
+
 - 📆 Add date of latest changelog update
 
 ## 2022-01-08

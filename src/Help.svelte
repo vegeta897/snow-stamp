@@ -8,32 +8,79 @@
 		> is a unique ID for a resource which contains a timestamp.
 	</p>
 	<p>
-		You can copy the snowflake from a message, user, channel, etc by right
-		clicking on them in Discord.
+		To copy a snowflake, you must have <em>Developer Mode</em> enabled in Discord.
 	</p>
-	<p>This will let you check the age of a Discord account or server.</p>
 	<p>
-		You must have Developer Mode enabled, which is found in <strong
-			>User Settings</strong
-		>
-		> <strong>Advanced</strong>
+		<em>On desktop,</em> click the ⚙ button next to your name and look in the
+		<em>Advanced</em>
+		tab.<br />Then you can right click on any message, user, or server and
+		choose <em>Copy ID</em> in the menu.
+	</p>
+	<p>
+		<em>On mobile,</em> tap on your avatar in the bottom right and look in the
+		<em>Appearance</em>
+		tab.<br />Then you can long-press on any message or server and choose
+		<em>Copy ID</em> in the menu. For users, tap the
+		<span class="button" /> button in their profile.
+	</p>
+	<p>
+		Paste the snowflake into the box below to check the age of a Discord account
+		or server.
 	</p>
 </details>
 
 <style>
 	details {
-		margin-bottom: 1.5em;
+		text-align: left;
+		margin: 0 44px 1.5em;
+	}
+
+	@media (max-width: 749px) {
+		details {
+			margin: 0 0 1.5em;
+		}
 	}
 
 	summary {
 		color: #666;
-		font-size: 1.1em;
+		font-size: 1.2em;
 		cursor: pointer;
 		font-weight: bold;
+		text-align: center;
 	}
 
 	:global(body.dark-mode) summary {
-		color: #99a9d2;
+		color: #abbef5;
+	}
+
+	em {
+		font-style: normal;
+		color: #666;
+	}
+
+	:global(body.dark-mode) em {
+		color: #abbef5;
+	}
+
+	span.button {
+		display: inline-block;
+		background: #bbb;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		position: relative;
+		top: 1px;
+		text-align: center;
+	}
+
+	:global(body.dark-mode) span.button {
+		background: #555;
+	}
+
+	span.button:before {
+		position: relative;
+		top: -5.5px;
+		content: '...';
 	}
 
 	summary:focus {
