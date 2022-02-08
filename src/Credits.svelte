@@ -1,6 +1,8 @@
 <script>
 	import discord from './img/discord-logo.svg'
 	import github from './img/github-logo.png'
+
+	const changelogLastUpdated = window.__SNOWSTAMP_CHANGELOG_LAST_UPDATED__
 </script>
 
 <div class="credits">
@@ -23,7 +25,9 @@
 		>&nbsp; &mdash;&nbsp;
 		<a href="https://github.com/vegeta897/snow-stamp/blob/main/CHANGELOG.md"
 			>Changelog</a
-		>
+		>{#if changelogLastUpdated}<span class="changelog-date"
+				>{changelogLastUpdated}</span
+			>{/if}
 	</p>
 	<p>
 		<a href="https://github.com/sponsors/vegeta897"
@@ -57,6 +61,15 @@
 
 	span {
 		display: inline-block;
+	}
+
+	.changelog-date {
+		margin-left: 0.4em;
+		color: #777;
+	}
+
+	:global(body.dark-mode) .changelog-date {
+		color: #a0a9ba;
 	}
 
 	a.github img {

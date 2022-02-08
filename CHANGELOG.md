@@ -2,6 +2,14 @@
 
 Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
+## 2022-02-07
+
+- 📆 Add date of latest changelog update
+
+## 2022-01-08
+
+- 🤗 Add sponsor section
+
 ## 2021-12-07
 
 - ☑️ Concluded visitor survey - [see the results](assets/survey-2021-12-07.md)

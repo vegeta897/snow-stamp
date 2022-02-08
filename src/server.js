@@ -24,6 +24,15 @@ try {
 	process.exit(1)
 }
 
+let changelogLastUpdated
+try {
+	const changelogText = fs.readFileSync(
+		path.resolve(__dirname, '../', 'CHANGELOG.md'),
+		'utf8'
+	)
+	changelogLastUpdated = changelogText.match(/## (\d\d\d\d-\d?\d-\d?\d)/)[1]
+} catch (e) {}
+
 app.get('/', (req, res) => {
 	const query = req.query
 	if (query.z || query.l) {
@@ -39,6 +48,12 @@ app.get('/', (req, res) => {
 		'afterbegin',
 		'<script>window.__SNOWSTAMP_DYNAMIC__ = true</script>'
 	)
+	if (changelogLastUpdated) {
+		headElement.insertAdjacentHTML(
+			'afterbegin',
+			`<script>window.__SNOWSTAMP_CHANGELOG_LAST_UPDATED__ = '${changelogLastUpdated}'</script>`
+		)
+	}
 	const embedTitle = getEmbedTitle(query)
 	if (embedTitle) {
 		console.log(
