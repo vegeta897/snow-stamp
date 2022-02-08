@@ -37,10 +37,10 @@
 				<Switch
 					bind:checked={showUnixMilliseconds}
 					small={matches}
-					bgColor={darkMode ? '#3E474C' : '#999'}
-					bgColorEnabled={darkMode ? '#3E474C' : '#999'}
-					switchColor={darkMode ? '#a0a9ba' : '#fff'}
-					switchColorEnabled={darkMode ? '#a0a9ba' : '#fff'}
+					bgColor={darkMode ? '#2a2d33' : '#999'}
+					bgColorEnabled={darkMode ? '#2a2d33' : '#999'}
+					switchColor={darkMode ? '#808896' : '#fff'}
+					switchColorEnabled={darkMode ? '#808896' : '#fff'}
 				/>
 			</MediaQuery>
 		</div>
@@ -99,12 +99,12 @@
 	}
 
 	section hr {
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid #666;
 		margin: 1em 0;
 	}
 
 	:global(body.dark-mode) section hr {
-		border: 1px solid rgba(255, 255, 255, 0.06);
+		border: 1px solid #1e2122;
 	}
 
 	@media (max-width: 749px) {

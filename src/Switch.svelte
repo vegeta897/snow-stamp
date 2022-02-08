@@ -2,9 +2,9 @@
 <script>
 	export let checked = false
 	export let bgColor = '#999'
-	export let bgColorEnabled = '#3E474C'
+	export let bgColorEnabled = '#2f363a'
 	export let switchColor = '#fff'
-	export let switchColorEnabled = '#a0a9ba'
+	export let switchColorEnabled = '#808896'
 	export let small = false
 </script>
 
@@ -59,14 +59,12 @@
 	.slider:before {
 		position: absolute;
 		content: '';
-		height: 26px;
-		width: 26px;
 		left: 4px;
 		bottom: 4px;
-		/*noinspection CssUnresolvedCustomProperty*/
-		background-color: var(--switch-color);
 		-webkit-transition: 0.2s;
 		transition: 0.2s;
+		/*noinspection CssUnresolvedCustomProperty*/
+		border: 13px solid var(--switch-color);
 		border-radius: 50%;
 	}
 
@@ -87,7 +85,7 @@
 
 	input:checked + .slider:before {
 		/*noinspection CssUnresolvedCustomProperty*/
-		background-color: var(--switch-color-enabled);
+		border-color: var(--switch-color-enabled);
 		-webkit-transform: translateX(26px);
 		-ms-transform: translateX(26px);
 		transform: translateX(26px);
