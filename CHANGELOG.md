@@ -8,7 +8,7 @@ Here are the latest changes to the site. View the [commit log](https://github.co
 
 ## 2022-01-08
 
-- 🤗 Add sponsor section
+- 🤗 Add sponsor section - [donate](https://github.com/sponsors/vegeta897) to get your name in the README or on the site!
 
 ## 2021-12-07
 
