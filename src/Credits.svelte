@@ -24,10 +24,8 @@
 			>Source</a
 		>&nbsp; &mdash;&nbsp;
 		<a href="https://github.com/vegeta897/snow-stamp/blob/main/CHANGELOG.md"
-			>Changelog</a
-		>{#if changelogLastUpdated}<span class="changelog-date"
-				>{changelogLastUpdated}</span
-			>{/if}
+			>Changelog{#if changelogLastUpdated}&nbsp;&nbsp;{changelogLastUpdated}{/if}</a
+		>
 	</p>
 	<p>
 		<a href="https://github.com/sponsors/vegeta897"
@@ -61,15 +59,6 @@
 
 	span {
 		display: inline-block;
-	}
-
-	.changelog-date {
-		margin-left: 0.4em;
-		color: #777;
-	}
-
-	:global(body.dark-mode) .changelog-date {
-		color: #a0a9ba;
 	}
 
 	a.github img {
