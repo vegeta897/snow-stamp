@@ -39,7 +39,7 @@
 		color: #777;
 		text-align: center;
 		font-size: 1em;
-		margin: 1em auto 0;
+		margin: auto auto 10px;
 	}
 	:global(body.dark-mode) .credits {
 		color: #bec2cc;

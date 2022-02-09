@@ -79,8 +79,9 @@
 
 	fieldset {
 		border: none;
-		margin: 1.8em auto;
+		margin: 26px auto;
 		padding: 0;
+		width: 100%;
 	}
 
 	.options {

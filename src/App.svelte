@@ -142,22 +142,26 @@
 			{timestamp}
 			{dynamicMode}
 		/>
+		<hr />
 	{/if}
 	{#if error}
 		<p style="margin-top: 0.2em;">❌ {error}</p>
 	{/if}
 	<LetItSnow bind:this={snowComponent} {letItSnow} />
-	<hr />
 	<Credits />
 </main>
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em 0;
-		max-width: 348px;
+		max-width: 364px;
 		margin: 0 auto;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		padding: 20px 8px 4px;
+		min-height: 100%;
 	}
 
 	main h2 {
@@ -170,8 +174,7 @@
 	h1 {
 		color: #008dad;
 		font-size: 2em;
-		margin-top: 8px;
-		margin-bottom: 21px;
+		margin: 8px 0 0;
 	}
 
 	:global(body.dark-mode) h1 {
@@ -180,8 +183,8 @@
 
 	#dark-toggle {
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 8px;
+		right: 8px;
 	}
 
 	p {
@@ -210,6 +213,8 @@
 	hr {
 		border: 1px solid #ccc;
 		width: 380px;
+		margin-block-start: 0;
+		margin-block-end: 0;
 	}
 
 	:global(body.dark-mode) hr {
@@ -218,7 +223,7 @@
 
 	@media (min-width: 750px) {
 		main {
-			max-width: 700px;
+			max-width: 716px;
 		}
 	}
 
