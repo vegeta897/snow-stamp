@@ -69,10 +69,9 @@
 	}
 
 	.small .slider:before {
-		height: 20px;
-		width: 20px;
 		left: 3px;
 		bottom: 3px;
+		border-width: 10px;
 	}
 
 	input:checked + .slider {
