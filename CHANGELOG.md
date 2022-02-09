@@ -2,17 +2,22 @@
 
 Here are the latest changes to the site. View the [commit log](https://github.com/vegeta897/snow-stamp/commits/main) for a full list of changes.
 
+## 2022-02-09
+
+- 👣 Moved footer to bottom of page and added a disclaimer
+- 🐛 Fixed some visual bugs introduced in recent updates
+
 ## 2022-02-08
 
-- 📝 Add clearer instructions in the help section
+- 📝 Added clearer instructions in the help section
 
 ## 2022-02-07
 
-- 📆 Add date of latest changelog update
+- 📆 Added date of latest changelog update
 
 ## 2022-01-08
 
-- 🤗 Add sponsor section - [donate](https://github.com/sponsors/vegeta897) to get your name in the README or on the site!
+- 🤗 Added sponsor section - [donate](https://github.com/sponsors/vegeta897) to get your name in the README or on the site!
 
 ## 2021-12-07
 
