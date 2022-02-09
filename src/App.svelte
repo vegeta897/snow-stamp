@@ -65,7 +65,7 @@
 			if (isSnowy(snowflake)) {
 				letItSnow = true
 			} else {
-				error = e
+				error = e.message || e
 			}
 		}
 	}
