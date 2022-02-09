@@ -32,6 +32,7 @@
 			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
 		> to get your name here!
 	</p>
+	<p class="disclaimer">Not affiliated with Discord, Inc</p>
 </div>
 
 <style>
@@ -70,5 +71,10 @@
 
 	:global(body.dark-mode) a.github img {
 		filter: invert();
+	}
+
+	.disclaimer {
+		font-size: 0.9em;
+		color: #88939f;
 	}
 </style>
