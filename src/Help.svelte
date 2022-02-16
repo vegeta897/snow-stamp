@@ -49,6 +49,10 @@
 		text-align: center;
 	}
 
+	summary:hover {
+		text-decoration: underline;
+	}
+
 	:global(body.dark-mode) summary {
 		color: #abbef5;
 	}
