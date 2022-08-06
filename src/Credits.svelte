@@ -27,8 +27,10 @@
 			>Changelog{#if changelogLastUpdated}&nbsp;&nbsp;{changelogLastUpdated}{/if}</a
 		>
 	</p>
-	<p>
-		Thank you to my sponsor: <code>Proxy#8342</code><br>
+	<p style="line-height: 1.5em;">
+		Thank you to my sponsors:<br>
+		<code>Proxy#8342</code><br>
+		Timothy Williams<br>
 		<a href="https://github.com/sponsors/vegeta897"
 			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
 		> to get your name here too!
