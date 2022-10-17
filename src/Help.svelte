@@ -11,13 +11,13 @@
 		To copy a snowflake, you must have <em>Developer Mode</em> enabled in Discord.
 	</p>
 	<p>
-		<em>On desktop,</em> click the ⚙ button next to your name and look in the
+		On <em>desktop</em>, click the ⚙ button next to your name and look in the
 		<em>Advanced</em>
 		tab.<br />Then you can right click on any message, user, or server and
 		choose <em>Copy ID</em> in the menu.
 	</p>
 	<p>
-		<em>On mobile,</em> tap on your avatar in the bottom right and look in the
+		On <em>mobile</em>, tap on your avatar in the bottom right and look in the
 		<em>Appearance</em>
 		tab.<br />Then you can long-press on any message or server and choose
 		<em>Copy ID</em> in the menu. For users, tap the
