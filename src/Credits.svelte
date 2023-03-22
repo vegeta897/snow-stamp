@@ -29,7 +29,6 @@
 	</p>
 	<p style="line-height: 1.5em;">
 		Thank you to my sponsors:<br>
-		<code>Proxy#8342</code><br>
 		Timothy Williams<br>
 		<a href="https://github.com/sponsors/vegeta897"
 			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
