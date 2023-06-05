@@ -14,7 +14,7 @@
 				src={discord}
 				alt="Discord"
 				style="position: relative; top: 11px; margin-top: -11px;"
-			/><code>vegeta897#7777</code></span
+			/><code>vegeta897</code></span
 		>
 	</p>
 	<p>
