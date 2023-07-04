@@ -1,6 +1,6 @@
 {
-	"name": "snow-stamp",
-	"version": "0.2.0",
+	"name": "hyperflake-validator-ui",
+	"version": "0.1.0",
 	"private": true,
 	"type": "module",
 	"devDependencies": {
@@ -39,6 +39,6 @@
 		"format": "prettier --write .",
 		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
 	},
-	"homepage": "https://github.com/vegeta897/snow-stamp#readme",
-	"issues": "https://github.com/vegeta897/snow-stamp/issues"
+	"homepage": "https://github.com/BRAVO68WEB/hyperflake-validator-ui#readme",
+	"issues": "https://github.com/BRAVO68WEB/hyperflake-validator-ui/issues"
 }

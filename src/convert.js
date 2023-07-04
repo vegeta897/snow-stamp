@@ -1,4 +1,4 @@
-export const DISCORD_EPOCH = 1420070400000
+export const DISCORD_EPOCH = 946684800000
 
 // Converts a snowflake ID string into a JS Date object using the provided epoch (in ms), or Discord's epoch if not provided
 export function convertSnowflakeToDate(snowflake, epoch = DISCORD_EPOCH) {

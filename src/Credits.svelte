@@ -14,27 +14,19 @@
 				src={discord}
 				alt="Discord"
 				style="position: relative; top: 11px; margin-top: -11px;"
-			/><code>vegeta897</code></span
+			/><code>bravo68web</code></span
 		>
 	</p>
 	<p>
-		<a class="github" href="https://github.com/vegeta897/snow-stamp"
+		<a class="github" href="https://github.com/BRAVO68WEB/hyperflake-validator-ui"
 			><img height="24px" src={github} alt="GitHub" /><span
 				style="text-decoration: none">&nbsp;</span
 			>Source</a
 		>&nbsp; &mdash;&nbsp;
-		<a href="https://github.com/vegeta897/snow-stamp/blob/main/CHANGELOG.md"
+		<a href="https://github.com/BRAVO68WEB/hyperflake-validator-ui/blob/main/CHANGELOG.md"
 			>Changelog{#if changelogLastUpdated}&nbsp;&nbsp;{changelogLastUpdated}{/if}</a
 		>
 	</p>
-	<p style="line-height: 1.5em;">
-		Thank you to my sponsors:<br>
-		Timothy Williams<br>
-		<a href="https://github.com/sponsors/vegeta897"
-			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
-		> to get your name here too!
-	</p>
-	<p class="disclaimer">Not affiliated with Discord, Inc</p>
 </div>
 
 <style>

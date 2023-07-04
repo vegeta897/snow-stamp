@@ -103,7 +103,7 @@
 		<h2 on:click={() => snowComponent.addSnowflake()}>
 			<img src="logo-header.png" height="113" alt="Snow-Stamp" />
 		</h2>
-		<h1>Discord Snowflake to Timestamp Converter</h1>
+		<h1>HyperFlake Validator UI</h1>
 	</hgroup>
 	<div id="dark-toggle">
 		<div style="display:inline-block;position:relative; top:13px; right:2px;">
@@ -116,7 +116,7 @@
 		<Switch bind:checked={darkMode} />
 	</div>
 	<p style="margin-bottom: 0.5em;">
-		Paste in a Discord snowflake to get the timestamp
+		Paste in a HyperFlake ID to get the timestamp
 	</p>
 	<Help />
 	<div
@@ -128,7 +128,7 @@
 			bind:value={snowflake}
 			use:selectTextOnFocus
 			use:blurOnEscape
-			placeholder="e.g. 86913608335773696"
+			placeholder="e.g. 3111206171915183114"
 		/>
 	</div>
 
