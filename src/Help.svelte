@@ -4,7 +4,7 @@
 		A <a
 			href="https://npmjs.com/packages/hyperflake"
 			rel="external"
-			target="_blank">Snowflake</a
+			target="_blank">HyperFlake</a
 		> is a unique ID for a resource that contains a timestamp.
 	</p>
 </details>
