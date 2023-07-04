@@ -1,31 +1,11 @@
 <details>
-	<summary>What is a snowflake?</summary>
+	<summary>What is a HyperFlake?</summary>
 	<p>
 		A <a
-			href="https://discord.com/developers/docs/reference#snowflakes"
+			href="https://npmjs.com/packages/hyperflake"
 			rel="external"
 			target="_blank">Snowflake</a
-		> is a unique ID for a resource which contains a timestamp.
-	</p>
-	<p>
-		To copy a snowflake, you must have <em>Developer Mode</em> enabled in Discord.
-	</p>
-	<p>
-		On <em>desktop</em>, click the ⚙ button next to your name and look in the
-		<em>Advanced</em>
-		tab.<br />Then you can right click on any message, user, or server and
-		choose <em>Copy ID</em> in the menu.
-	</p>
-	<p>
-		On <em>mobile</em>, tap on your avatar in the bottom right and look in the
-		<em>Appearance</em>
-		tab.<br />Then you can long-press on any message or server and choose
-		<em>Copy ID</em> in the menu. For users, tap the
-		<span class="button" /> button in their profile.
-	</p>
-	<p>
-		Paste the snowflake into the box below to check the age of a Discord account
-		or server.
+		> is a unique ID for a resource that contains a timestamp.
 	</p>
 </details>
 
