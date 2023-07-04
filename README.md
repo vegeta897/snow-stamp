@@ -25,3 +25,8 @@ Otherwise, start the server:
 `npm start`
 
 The server runs on port 3000 by default, but you can set `PORT` in your environment variables. You can create a `.env` file in root to set this variable.
+
+## Source Code Attribution
+
+- Original Code by [vegeta897](https://github.com/vegeta897) from [snow-stamp](https://github.com/vegeta897/snow-stamp/)
+- All Assets belong to [vegeta897](https://github.com/vegeta897)

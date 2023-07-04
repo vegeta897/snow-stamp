@@ -1,6 +1,6 @@
 {
-	"short_name": "Snow-Stamp",
-	"name": "Discord Snowflake to Timestamp Converter",
+	"short_name": "HyperFlake Validator UI",
+	"name": "HyperFlake to Timestamp Converter",
 	"icons": [
 		{
 			"src": "icon-192.png",

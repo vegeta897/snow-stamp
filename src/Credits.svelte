@@ -27,6 +27,9 @@
 			>Changelog{#if changelogLastUpdated}&nbsp;&nbsp;{changelogLastUpdated}{/if}</a
 		>
 	</p>
+	<p class="disclaimer">
+		Disclaimer: This is official HyperFlake validator. Check it out on <a href="https://github.com/BRAVO68WEB/hyperflake">GitHub</a> for more information.
+	</p>
 </div>
 
 <style>

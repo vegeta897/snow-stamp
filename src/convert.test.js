@@ -4,8 +4,8 @@ import {
 	validateSnowflake,
 } from './convert'
 
-const snowflake = '86913608335773696'
-const defaultUnix = 1440792219004
+const snowflake = '3111206171915183114'
+const defaultUnix = 1688454154800
 
 test('converts snowflake to correct date', () => {
 	expect(convertSnowflakeToDate(snowflake).getTime()).toBe(defaultUnix)
