@@ -1,6 +1,6 @@
 import {
 	convertSnowflakeToDate,
-	DISCORD_EPOCH,
+	HYPERFLAKE_EPOCH,
 	validateSnowflake,
 } from './convert'
 
@@ -14,7 +14,7 @@ test('converts snowflake to correct date', () => {
 test('converts snowflake to correct date with custom epoch', () => {
 	const epoch = 1000
 	expect(convertSnowflakeToDate(snowflake, epoch).getTime()).toBe(
-		defaultUnix - DISCORD_EPOCH + epoch
+		defaultUnix - HYPERFLAKE_EPOCH + epoch
 	)
 })
 
