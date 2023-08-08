@@ -30,6 +30,7 @@
 	<p style="line-height: 1.5em;">
 		Thank you to my sponsors:<br>
 		Timothy Williams<br>
+		<a href="https://github.com/LonelyToaster">LonelyToaster</a><br>
 		<a href="https://github.com/sponsors/vegeta897"
 			><span style="text-decoration: none">&nbsp;💙</span> Donate</a
 		> to get your name here too!
