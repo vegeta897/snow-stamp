@@ -129,6 +129,7 @@
 			use:selectTextOnFocus
 			use:blurOnEscape
 			placeholder="e.g. 86913608335773696"
+			autofocus
 		/>
 	</div>
 
