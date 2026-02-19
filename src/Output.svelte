@@ -65,13 +65,6 @@
 		background: #101314;
 	}
 
-	section ::selection {
-		background: #000;
-	}
-	section ::-moz-selection {
-		background: #000;
-	}
-
 	section p {
 		margin: 0.2em 0;
 	}

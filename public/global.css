@@ -33,20 +33,6 @@ body.dark-mode a {
 	color: #69eaff;
 }
 
-::selection {
-	background: #69eaff;
-}
-::-moz-selection {
-	background: #69eaff;
-}
-
-body.dark-mode ::selection {
-	background: #444;
-}
-body.dark-mode ::-moz-selection {
-	background: #444;
-}
-
 label {
 	display: block;
 }
